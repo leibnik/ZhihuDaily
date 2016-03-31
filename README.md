@@ -12,7 +12,7 @@
 ![](http://ww3.sinaimg.cn/mw690/b5405c76gw1f2gdaaw0sqj21kw0rkqgv.jpg)
 ![](http://ww1.sinaimg.cn/mw690/b5405c76gw1f2gdaquw36j21kw0rt4bq.jpg)
 
-###依赖库
+### 开源依赖库
 * [ButterKnife](https://github.com/JakeWharton/butterknife)
 * [Android-async-http](https://github.com/loopj/android-async-http)
 * [Glide](https://github.com/bumptech/glide)
@@ -20,9 +20,11 @@
 * [CircleImageView](https://github.com/hdodenhof/CircleImageView)
 * [multiline-collapsingtoolbar](https://github.com/opacapp/multiline-collapsingtoolbar)
 * [Loading](https://github.com/yankai-victor/Loading)
-* Recyclerview:23.1.1
-* appcompat-v7:23.1.1
-* design:23.1.1
+
+### 官方依赖库
+* com.android.support:Recyclerview:23.1.1
+* com.android.support:appcompat-v7:23.1.1
+* com.android.support:design:23.1.1
 
 ```
 dependencies {
