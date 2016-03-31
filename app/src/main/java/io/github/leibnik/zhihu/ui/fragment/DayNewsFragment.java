@@ -152,7 +152,7 @@ public class DayNewsFragment extends BaseFragment {
 
     private void handleResponse(String responseString) {
         if (TextUtils.isEmpty(responseString)) {
-            mRecyclerView.setAdapter(new DaySummaryAdapter(mActivity,new NewsADay(),isColorTheme));
+            mRecyclerView.setAdapter(new DaySummaryAdapter(mActivity, new NewsADay(), isColorTheme));
 
             ((MainActivity) mActivity).showSnackBar("网络无连接");
             return;
@@ -173,7 +173,7 @@ public class DayNewsFragment extends BaseFragment {
                 view.getLocationOnScreen(location);
                 location[0] += view.getWidth() / 2;
                 Intent intent = new Intent(mActivity, DayNewsDetailActivity.class);
-                intent.putExtra("summary",data);
+                intent.putExtra("summary", data);
                 intent.putExtra("location", location);
                 startActivity(intent);
             }
@@ -182,8 +182,10 @@ public class DayNewsFragment extends BaseFragment {
     }
 
     @Override
-    public void updateTheme(boolean isColorTheme,BitmapDrawable background) {
+    public void updateTheme(boolean isColorTheme, BitmapDrawable background) {
         super.isColorTheme = isColorTheme;
-        mAdapter.updateTheme(isColorTheme);
+        if (mAdapter != null) {
+            mAdapter.updateTheme(isColorTheme);
+        }
     }
 }
