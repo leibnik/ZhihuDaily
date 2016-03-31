@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CYTextView">
+        <attr name="mytextSize" format="dimension"/>
+        <attr name="mytextColor" format="reference|color"/>
+        <attr name="lineSpacingExtra" format="dimension"/>
+        <attr name="typeface" format="integer"/>
+    </declare-styleable>
+</resources>

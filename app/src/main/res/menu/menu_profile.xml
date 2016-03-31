@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/reset_password" android:title="重置密码" app:showAsAction="never"/>
+    <item android:id="@+id/auto_login" android:title="开启自动登陆" app:showAsAction="never"/>
+    <item android:id="@+id/logout" android:title="退出登录" app:showAsAction="never"/>
+</menu>

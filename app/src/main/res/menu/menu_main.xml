@@ -1,0 +1,14 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto"
+      xmlns:tools="http://schemas.android.com/tools"
+      tools:context=".ui.activity.MainActivity"
+    >
+    <item
+        android:id="@+id/action_light_mode"
+        android:title="默认主题" />
+    <item android:id="@+id/action_scenery_mode"
+          android:title="风景主题"/>
+    <item
+        android:id="@+id/action_custom_mode"
+        android:title="自定义背景" />
+</menu>

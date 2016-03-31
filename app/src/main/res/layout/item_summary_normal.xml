@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/card_rl"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="8dp"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:layout_marginTop="8dp"
+    android:orientation="vertical"
+    android:gravity="center_vertical"
+    android:background="@drawable/item_background_selector">
+
+    <TextView
+        android:id="@+id/time_tv"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="2dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="2dp"
+        android:text="今日最新"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        android:visibility="gone"/>
+
+
+    <ImageView
+        android:id="@+id/summary_iv"
+        android:layout_below="@id/time_tv"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_alignParentRight="true"
+        android:layout_gravity="right"
+        android:layout_marginBottom="4dp"
+        android:layout_marginRight="4dp"
+        android:layout_marginTop="4dp"
+        android:scaleType="fitXY"
+        android:visibility="gone"/>
+
+    <io.github.leibnik.zhihu.view.JustifyTextView
+        android:id="@+id/summary_tv"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:maxLines="3"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_toLeftOf="@id/summary_iv"
+        android:layout_below="@id/time_tv"
+        android:textSize="15sp"
+        android:textColor="@color/summary_item_textcolor_selector"
+        />
+</RelativeLayout>
