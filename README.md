@@ -1,6 +1,6 @@
 # ZhihuDaily
 
-###说明
+###Tips
 * 该项目集成了Bmob SDK用于登陆，注册，收藏，修改密码，修改用户名，上传头像，项目已含有Application Id无需自行申请。
 * 默认主题为蓝白色，可选择相册图片来自定义主题，通过对Bitmap进行裁剪使能以CenterCrop方式设置背景
 * 对首页背景图片，侧滑页背景图片及个人主页的AppBarLayout背景图片进行模糊处理，采用了流传较广的模糊算法FastBlur
