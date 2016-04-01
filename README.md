@@ -3,9 +3,9 @@
 下载apk体验：[CSDN下载](http://download.csdn.net/download/leibnik/9478944)|[百度云盘下载](http://pan.baidu.com/s/1o7LVUZo)
 
 ###欢迎
-star一下表示支持
-fork一下可以参与进来完善这个项目
-issue尽管提
+* star一下表示支持
+* fork一下可以参与进来完善这个项目
+* issue尽管提
 
 ###Tips
 * 该项目集成了Bmob SDK用于登陆，注册，收藏，修改密码，修改用户名，上传头像，项目已含有Application Id无需自行申请。
