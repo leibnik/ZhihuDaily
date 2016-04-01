@@ -76,15 +76,16 @@ public class LoginActivity extends BaseActivity {
                     Snackbar.make((View) loginBtn.getParent().getParent(), "密码不能为空", Snackbar.LENGTH_SHORT).show();
                     return;
                 }
+                Snackbar.make((View) loginBtn.getParent().getParent(), "登陆中...", Snackbar.LENGTH_INDEFINITE).show();
                 String password = MD5Util.getMd5Value(MD5Util.getMd5Value(rawPassword));
                 BmobUser.loginByAccount(getApplicationContext(), username
                         , password, new LogInListener<User>() {
                     @Override
                     public void done(User user, BmobException e) {
                         if (user != null) {
+                            Snackbar.make((View) loginBtn.getParent().getParent(), "登陆成功", Snackbar.LENGTH_SHORT).show();
                             Log.i("smile", "用户登陆成功");
                             ZhihuApplication.user = BmobUser.getCurrentUser(getApplicationContext(), User.class);
-                            Snackbar.make((View) loginBtn.getParent().getParent(), "登陆成功", Snackbar.LENGTH_SHORT).show();
                             Intent intent = new Intent(getApplicationContext(), ProfileActivity.class);
                             startActivity(intent);
                             overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_to_left);
@@ -92,7 +93,7 @@ public class LoginActivity extends BaseActivity {
                             PreferenceUtil.setPrefString(getApplicationContext(), "username", username);
                             PreferenceUtil.setPrefString(getApplicationContext(), "password", rawPassword);
                             finish();
-                        }else{
+                        } else {
                             Snackbar.make((View) loginBtn.getParent().getParent(), e.toString(), Snackbar.LENGTH_SHORT).show();
                         }
                     }
