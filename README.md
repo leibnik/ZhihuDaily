@@ -8,11 +8,11 @@
 * 使用multiline-collapsingtoolbar代替了原生的collapsingtoolbar，使得Expanded状态的title能多行显示
 
 ###效果图
-![](http://ww4.sinaimg.cn/mw690/b5405c76gw1f2gd9u7wv5j21kw0rndqi.jpg)
-![](http://ww1.sinaimg.cn/mw690/b5405c76gw1f2gwvx4eatj20vr0v27fn.jpg)
-![](http://ww2.sinaimg.cn/mw690/b5405c76gw1f2gwvsjd26j20vw0v2n4r.jpg)
-![](http://ww2.sinaimg.cn/mw690/b5405c76gw1f2gww2u4mdj20vs0v2gwc.jpg)
-![](http://ww3.sinaimg.cn/mw690/b5405c76gw1f2gwvzgs0pj20vq0v27aq.jpg)
+![](http://ww3.sinaimg.cn/mw690/b5405c76gw1f2gxioolg8j21bu0v2al1.jpg)
+![](http://ww1.sinaimg.cn/mw690/b5405c76gw1f2gxiazwj9j21bq0v2dwo.jpg)
+![](http://ww1.sinaimg.cn/mw690/b5405c76gw1f2gxi50polj21bu0v2n8o.jpg)
+![](http://ww3.sinaimg.cn/mw690/b5405c76gw1f2gxikcd56j21bq0v27jk.jpg)
+![](http://ww2.sinaimg.cn/mw690/b5405c76gw1f2gxig3efij21bk0v2aks.jpg)
 
 
 ### 开源依赖库
