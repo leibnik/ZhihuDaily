@@ -93,6 +93,7 @@ public class RegisterActivity extends BaseActivity {
                 user.setMobilePhoneNumber(username);
                 String password = MD5Util.getMd5Value(MD5Util.getMd5Value(rawPassword));
                 user.setPassword(password);
+                Snackbar.make((View) registerBtn.getParent(), "正在注册...", Snackbar.LENGTH_INDEFINITE).show();
                 user.signOrLogin(getApplicationContext(), verifyCode, new SaveListener() {
                     @Override
                     public void onSuccess() {
