@@ -1,11 +1,14 @@
 # ZhihuDaily
 
 ###说明
-* 该项目集成了Bmob SDK用于登陆，注册及收藏功能。
-* 默认主题为蓝白色，可选择相册图片来自定义主题，通过对Bitmap的计算处理使能以CenterCrop方式设置背景。
-* 首页背景，侧滑页背景及个人主页的AppBarLayout背景使用毛玻璃效果。
-* 使用RecyclerView，全面替代ListView，无论是添加点击事件，滚动事件，header，footer
+* 该项目集成了Bmob SDK用于登陆，注册，收藏，修改密码，修改用户名，上传头像，项目已含有Application Id无需自行申请。
+* 默认主题为蓝白色，可选择相册图片来自定义主题，通过对Bitmap进行裁剪使能以CenterCrop方式设置背景
+* 对首页背景图片，侧滑页背景图片及个人主页的AppBarLayout背景图片进行模糊处理，采用了流传较广的模糊算法FastBlur
+* 使用RecyclerView，全面替代ListView，无论是添加点击事件，滚动监听事件，header，footer
+* SwipeRefreshLayout配合RecyclerView.OnScrollListener实现下拉刷新，footer视图配合RecyclerView.OnScrollListener实现上拉加载
 * 使用multiline-collapsingtoolbar代替了原生的collapsingtoolbar，使得Expanded状态的title能多行显示
+* 对图片进行模糊处理耗时在几十到几百毫秒不等，因此开启异步任务进行模糊处理，如个人主页的AppBarLayout需要根据头像生成模糊的背景图片
+* 上传图片成功并且Glide完成新头像的加载，需要更换AppBarLayout背景图片，可在使用Glide加载新头像时添加RequestListener，取得Drawble后开启异步任务进行模糊处理
 
 ###效果图
 ![](http://ww3.sinaimg.cn/mw690/b5405c76gw1f2gxioolg8j21bu0v2al1.jpg)
@@ -29,6 +32,7 @@
 * com.android.support:appcompat-v7:23.1.1
 * com.android.support:design:23.1.1
 
+###Gradle
 ```
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
