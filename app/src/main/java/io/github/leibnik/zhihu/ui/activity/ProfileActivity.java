@@ -324,6 +324,7 @@ public class ProfileActivity extends BaseActivity {
             if (requestCode == Constant.EDIT_NAME) {
                 nameTv.setText(ZhihuApplication.user.getUsername());
                 UpdateInfoManager.updateInfo();
+                Snackbar.make((View) mRecyclerView.getParent(), "成功更新用户名", Snackbar.LENGTH_SHORT).show();
             }
             if (requestCode == Constant.RESET_PASSWORD) {
                 Snackbar.make((View) mRecyclerView.getParent(), "重置密码成功", Snackbar.LENGTH_SHORT).show();
