@@ -333,12 +333,15 @@ public class ProfileActivity extends BaseActivity {
 
     private void bmobUploadAvatar(final File file) {
         final BmobFile bmobFile = new BmobFile(file);
+        Snackbar.make((View) mRecyclerView.getParent(), "头像上传中...", Snackbar.LENGTH_INDEFINITE).show();
         bmobFile.uploadblock(this, new UploadFileListener() {
 
             @Override
             public void onSuccess() {
-                ZhihuApplication.user.setAvatar(bmobFile.getFileUrl(getApplicationContext()));
-                ZhihuApplication.user.update(getApplicationContext(), ZhihuApplication.user.getObjectId(), new UpdateListener() {
+//                ZhihuApplication.user.setAvatar(bmobFile.getFileUrl(getApplicationContext()));
+                User user = new User();
+                user.setAvatar(bmobFile.getFileUrl(getApplicationContext()));
+                user.update(getApplicationContext(), ZhihuApplication.user.getObjectId(), new UpdateListener() {
                     @Override
                     public void onSuccess() {
                         ZhihuApplication.user.setAvatar(bmobFile.getFileUrl(getApplicationContext()));
@@ -361,14 +364,14 @@ public class ProfileActivity extends BaseActivity {
                                 return false;
                             }
                         }).error(R.mipmap.profile).into(avatarIv);
+                        Snackbar.make((View) mRecyclerView.getParent(), "头像上传成功", Snackbar.LENGTH_SHORT).show();
                     }
 
                     @Override
                     public void onFailure(int i, String s) {
-
+                        Snackbar.make((View) mRecyclerView.getParent(), s, Snackbar.LENGTH_SHORT).show();
                     }
                 });
-
             }
 
             @Override
