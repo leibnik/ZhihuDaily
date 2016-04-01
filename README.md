@@ -1,6 +1,6 @@
 # ZhihuDaily
 
-下载apk体验：[CSDN下载](http://download.csdn.net/download/leibnik/9478944)|[百度云盘下载](http://pan.baidu.com/s/1o7LVUZo)
+下载apk体验：[CSDN下载](http://download.csdn.net/download/leibnik/9478944) | [百度云盘下载](http://pan.baidu.com/s/1o7LVUZo)
 
 ###欢迎
 * star一下表示支持
