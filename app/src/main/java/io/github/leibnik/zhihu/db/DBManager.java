@@ -92,7 +92,7 @@ public class DBManager {
 
     public String getThemeSummary(int id) {
         db = dbHelper.getReadableDatabase();
-        Cursor cursor = db.rawQuery("select * from summary where id = " + Constant.THEME_SUMMARY_COLUMN + id, null);
+        Cursor cursor = db.rawQuery("select * from summary where id = " + (Constant.THEME_SUMMARY_COLUMN + id), null);
         String result = null;
         while (cursor.moveToNext()) {
             result = cursor.getString(cursor.getColumnIndex("json"));

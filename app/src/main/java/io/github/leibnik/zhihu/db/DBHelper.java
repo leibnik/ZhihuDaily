@@ -15,7 +15,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public static String THEMES_TABLE_NAME = "themes";
     public static String CREATE_SUMMARY_TABLE =
             "CREATE TABLE IF NOT EXISTS summary (" +
-                    "id INTEGER primary key autoincrement," +
+                    "id INTEGER primary key," +
                     "date INTEGER unique," +
                     "json TEXT);";
     public static String CREATE_DETAIL_TABLE =
