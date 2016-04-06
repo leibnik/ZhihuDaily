@@ -74,7 +74,7 @@ public class DayNewsFragment extends BaseFragment {
                 Log.e(TAG, dx + "/" + dy);
                 ((MainActivity) mActivity).setRefreshEnable(layoutManager
                         .findFirstCompletelyVisibleItemPosition() == 0);
-                if (!isLoading && layoutManager.findLastVisibleItemPosition() == mAdapter.getItemCount() - 1) {
+                if (!isLoading && mAdapter != null && layoutManager.findLastVisibleItemPosition() == mAdapter.getItemCount() - 1) {
                     isLoading = true;
                     loadMoreData();
                 }

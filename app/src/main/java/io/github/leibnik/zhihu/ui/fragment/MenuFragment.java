@@ -205,6 +205,9 @@ public class MenuFragment extends BaseFragment {
     }
 
     private void handleResponse(String response) {
+        if(response == null){
+            return;
+        }
         List<Themes> data = parseJson(response);
         Themes home = new Themes();
         home.setName("首页");

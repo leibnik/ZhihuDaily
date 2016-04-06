@@ -65,7 +65,9 @@ public class DaySummaryAdapter extends RecyclerView.Adapter<DaySummaryAdapter.Vi
             super(itemView);
             if (viewType == IS_HEADER) {
                 bannerView = (BannerView) itemView.findViewById(R.id.banner);
-                bannerView.setData(topStories);
+                if (topStories != null && topStories.size() > 0){
+                    bannerView.setData(topStories);
+                }
             }
             if (viewType == IS_NORMAL) {
                 tvTime = (TextView) itemView.findViewById(R.id.time_tv);
