@@ -38,7 +38,7 @@
     <fragment
         android:id="@+id/menu_fragment"
         android:name="io.github.leibnik.zhihu.ui.fragment.MenuFragment"
-        android:layout_width="280dp"
+        android:layout_width="300dp"
         android:layout_height="match_parent"
         android:layout_gravity="left"/>
 </android.support.v4.widget.DrawerLayout>
