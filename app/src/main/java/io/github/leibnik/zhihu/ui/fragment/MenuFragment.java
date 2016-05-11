@@ -110,7 +110,7 @@ public class MenuFragment extends BaseFragment {
             public void login() {
                 if (ZhihuApplication.user != null) {
                     Glide.with(mActivity.getApplicationContext())
-                            .load(ZhihuApplication.user.getAvatar()).error(R.mipmap.profile).into(userIv);
+                            .load(ZhihuApplication.user.getAvatar()).error(R.drawable.profile).into(userIv);
                     userTv.setText(ZhihuApplication.user.getUsername());
                 }
             }
@@ -118,7 +118,7 @@ public class MenuFragment extends BaseFragment {
             @Override
             public void logout() {
                 userTv.setText("点击头像登陆");
-                userIv.setImageResource(R.mipmap.profile);
+                userIv.setImageResource(R.drawable.profile);
             }
         });
         UpdateInfoManager.addOnUpdateInfoListener(new UpdateInfoManager.OnUpdateInfoListener() {
@@ -133,7 +133,7 @@ public class MenuFragment extends BaseFragment {
             public void updateAvatar() {
                 if (ZhihuApplication.user != null) {
                     Glide.with(mActivity.getApplicationContext())
-                            .load(ZhihuApplication.user.getAvatar()).error(R.mipmap.profile).into(userIv);
+                            .load(ZhihuApplication.user.getAvatar()).error(R.drawable.profile).into(userIv);
                 }
             }
         });
@@ -269,7 +269,7 @@ public class MenuFragment extends BaseFragment {
         } else {
             if (background == null) {
                 ((LinearLayout) themesLv.getParent().getParent()).setBackground(mActivity.getResources()
-                        .getDrawable(R.mipmap.menu_background));
+                        .getDrawable(R.drawable.menu_background));
             } else {
                 ((LinearLayout) themesLv.getParent().getParent()).setBackground(background);
             }

@@ -8,13 +8,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <ImageView
-            android:src="@mipmap/login_background"
+            android:src="@drawable/login_background"
             android:gravity="top"
             android:scaleType="centerCrop"
             android:layout_width="match_parent"
             android:layout_height="230dp"/>
         <ImageView
-            android:src="@mipmap/logo"
+            android:src="@drawable/logo"
             android:layout_gravity="bottom|center_horizontal"
             android:layout_marginBottom="50dp"
             android:layout_width="wrap_content"
@@ -40,7 +40,7 @@
             android:id="@+id/username_et"
             android:textCursorDrawable="@drawable/cursor_shape"
             android:background="@drawable/register_login_et_selector"
-            android:drawableLeft="@mipmap/account"
+            android:drawableLeft="@drawable/account"
             android:paddingLeft="10dp"
             android:drawablePadding="8dp"
             android:hint="请输入用户名"
@@ -53,7 +53,7 @@
             android:id="@+id/password_et"
             android:textCursorDrawable="@drawable/cursor_shape"
             android:background="@drawable/register_login_et_selector"
-            android:drawableLeft="@mipmap/password"
+            android:drawableLeft="@drawable/password"
             android:drawablePadding="8dp"
             android:paddingLeft="10dp"
             android:hint="请输入密码"

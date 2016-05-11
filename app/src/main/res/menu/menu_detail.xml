@@ -2,7 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
       xmlns:app="http://schemas.android.com/apk/res-auto"
     >
-    <item android:icon="@mipmap/star_no"
+    <item android:icon="@drawable/star_no"
           android:title="收藏"
           app:showAsAction="never"
           android:id="@+id/star"/>

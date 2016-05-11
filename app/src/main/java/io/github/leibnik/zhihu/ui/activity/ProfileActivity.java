@@ -145,10 +145,10 @@ public class ProfileActivity extends BaseActivity {
         if (isColorTheme) {
             backgroundIv.setBackgroundColor(getResources().getColor(R.color.blue));
             Glide.with(getApplicationContext()).load(ZhihuApplication.user.getAvatar())
-                    .error(R.mipmap.profile).into(avatarIv);
+                    .error(R.drawable.profile).into(avatarIv);
         } else {
             if (TextUtils.isEmpty(ZhihuApplication.user.getAvatar())) {
-                new TaskBlurBackground(getApplicationContext(), R.mipmap.profile) {
+                new TaskBlurBackground(getApplicationContext(), R.drawable.profile) {
                     @Override
                     protected void onPostExecute(Bitmap bitmap) {
                         super.onPostExecute(bitmap);
@@ -173,7 +173,7 @@ public class ProfileActivity extends BaseActivity {
                         }.execute();
                         return false;
                     }
-                }).error(R.mipmap.profile).into(avatarIv);
+                }).error(R.drawable.profile).into(avatarIv);
             }
         }
     }
@@ -364,7 +364,7 @@ public class ProfileActivity extends BaseActivity {
                                 }.execute();
                                 return false;
                             }
-                        }).error(R.mipmap.profile).into(avatarIv);
+                        }).error(R.drawable.profile).into(avatarIv);
                         Snackbar.make((View) mRecyclerView.getParent(), "头像上传成功", Snackbar.LENGTH_SHORT).show();
                     }
 

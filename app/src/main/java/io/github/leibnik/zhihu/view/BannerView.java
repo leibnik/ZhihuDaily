@@ -100,9 +100,9 @@ public class BannerView extends FrameLayout implements OnClickListener {
         for (int i = 0; i < len; i++) {
             ImageView iv_dot = new ImageView(context);
             if (i == 0) {
-                iv_dot.setImageResource(R.mipmap.dot_focus);
+                iv_dot.setImageResource(R.drawable.dot_focus);
             } else {
-                iv_dot.setImageResource(R.mipmap.dot_blur);
+                iv_dot.setImageResource(R.drawable.dot_blur);
             }
             LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
                     LinearLayout.LayoutParams.WRAP_CONTENT,
@@ -211,9 +211,9 @@ public class BannerView extends FrameLayout implements OnClickListener {
         public void onPageSelected(int arg0) {
             for (int i = 0; i < iv_dots.size(); i++) {
                 if (i == arg0 - 1) {
-                    iv_dots.get(i).setImageResource(R.mipmap.dot_focus);
+                    iv_dots.get(i).setImageResource(R.drawable.dot_focus);
                 } else {
-                    iv_dots.get(i).setImageResource(R.mipmap.dot_blur);
+                    iv_dots.get(i).setImageResource(R.drawable.dot_blur);
                 }
             }
 

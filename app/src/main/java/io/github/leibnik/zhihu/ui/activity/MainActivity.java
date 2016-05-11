@@ -86,7 +86,7 @@ public class MainActivity extends BaseActivity {
             mRefreshLayout.setBackgroundColor(getResources().getColor(R.color.home_background));
         } else {
             if (TextUtils.isEmpty(background)) {
-                mLinearLayout.setBackground(getResources().getDrawable(R.mipmap.main_background));
+                mLinearLayout.setBackground(getResources().getDrawable(R.drawable.main_background));
             } else {
                 updateBackground();
             }
@@ -164,7 +164,7 @@ public class MainActivity extends BaseActivity {
         }
         if (id == R.id.action_scenery_mode) {
             isColorTheme = false;
-            mLinearLayout.setBackground(getResources().getDrawable(R.mipmap.main_background));
+            mLinearLayout.setBackground(getResources().getDrawable(R.drawable.main_background));
             mToolbar.setBackgroundColor(getResources().getColor(android.R.color.transparent));
             currentFragment.updateTheme(isColorTheme, null);
             ((MenuFragment) getSupportFragmentManager().findFragmentById(R.id.menu_fragment))

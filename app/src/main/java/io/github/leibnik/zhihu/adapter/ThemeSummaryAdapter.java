@@ -91,7 +91,7 @@ public class ThemeSummaryAdapter extends RecyclerView.Adapter<ThemeSummaryAdapte
             if (mData.get(position - 1).getImages() != null && mData.get(position - 1).getImages().size() > 0) {
                 holder.itemIv.setVisibility(View.VISIBLE);
                 Glide.with(mContext).load(mData.get(position - 1).getImages().get(0))
-                        .placeholder(R.mipmap.loading).error(R.mipmap.error).into(holder.itemIv);
+                        .placeholder(R.drawable.loading).error(R.drawable.error).into(holder.itemIv);
                 holder.itemTv.setText(mData.get(position - 1).getTitle());
             } else {
                 holder.itemIv.setVisibility(View.GONE);

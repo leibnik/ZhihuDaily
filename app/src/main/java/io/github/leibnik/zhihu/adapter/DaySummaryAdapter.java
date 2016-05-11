@@ -131,7 +131,7 @@ public class DaySummaryAdapter extends RecyclerView.Adapter<DaySummaryAdapter.Vi
             holder.tvTitle.setText(data.get(position - 1).getTitle() + "\n");
             if (data.get(position - 1).getImages() != null && data.get(position - 1).getImages().size() > 0) {
                 Glide.with(mContext.getApplicationContext()).load(data.get(position - 1).getImages().get(0))
-                        .placeholder(R.mipmap.loading).error(R.mipmap.error).into(holder.ivTitle);
+                        .placeholder(R.drawable.loading).error(R.drawable.error).into(holder.ivTitle);
             }
         }
         if (holder.getItemViewType() == IS_HEADER) {

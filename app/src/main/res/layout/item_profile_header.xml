@@ -14,7 +14,7 @@
         android:layout_height="100dp"
         android:layout_centerHorizontal="true"
         android:layout_margin="15dp"
-        android:src="@mipmap/profile"
+        android:src="@drawable/profile"
         app:civ_border_color="#33000000"
         app:civ_border_width="2dp"/>
 
@@ -38,7 +38,7 @@
         android:layout_marginBottom="5dp"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="20dp"
-        android:src="@mipmap/editor"/>
+        android:src="@drawable/editor"/>
 
     <TextView
         android:layout_width="match_parent"
