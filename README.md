@@ -1,21 +1,12 @@
 # ZhihuDaily
 
 下载apk体验：[CSDN下载](http://download.csdn.net/detail/leibnik/9482723) | [百度云盘下载](http://pan.baidu.com/s/1hrT9UNq)
-
-###欢迎
-* star一下表示支持
-* fork一下可以参与进来完善这个项目
-* issue尽管提
-
+### 声明 
+本项目所使用API均来自 知乎日报 API 分析 若被告知需停止共享与使用，本人会及时删除此页面与整个项目。 请您暸解相关情况，并遵守知乎协议。
+### API
+[知乎日报API](https://github.com/leibnik/ZhihuDaily/blob/master/ZhihuDaily-api.md)
 ###Tips
 * 该项目集成了Bmob SDK用于登陆，注册，收藏，修改密码，修改用户名，上传头像，项目已含有Application Id无需自行申请。
-* 默认主题为蓝白色，可选择相册图片来自定义主题，通过对Bitmap进行裁剪使能以CenterCrop方式设置背景
-* 对首页背景图片，侧滑页背景图片及个人主页的AppBarLayout背景图片进行模糊处理，采用了流传较广的模糊算法FastBlur
-* 使用RecyclerView，全面替代ListView，无论是添加点击事件，滚动监听事件，header，footer
-* SwipeRefreshLayout配合RecyclerView.OnScrollListener实现下拉刷新，footer视图配合RecyclerView.OnScrollListener实现上拉加载
-* 使用multiline-collapsingtoolbar代替了原生的collapsingtoolbar，使得Expanded状态的title能多行显示
-* 对图片进行模糊处理耗时在几十到几百毫秒不等，因此开启异步任务进行模糊处理，如个人主页的AppBarLayout需要根据头像生成模糊的背景图片
-* 上传图片成功并且Glide完成新头像的加载，需要更换AppBarLayout背景图片，可在使用Glide加载新头像时添加RequestListener，取得Drawble后开启异步任务进行模糊处理
 
 ###效果图
 ![](http://ww3.sinaimg.cn/mw690/b5405c76gw1f2gxioolg8j21bu0v2al1.jpg)
@@ -61,29 +52,3 @@ dependencies {
 }
 ```
 
-### API
-[知乎日报API](https://github.com/leibnik/ZhihuDaily/blob/master/ZhihuDaily-api.md)
-
-# License
-
-    The MIT License (MIT)
-
-    Copyright (c) 2016 leibnik
-
-    Permission is hereby granted, free of charge, to any person obtaining a copy
-    of this software and associated documentation files (the "Software"), to deal
-    in the Software without restriction, including without limitation the rights
-    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-    copies of the Software, and to permit persons to whom the Software is
-    furnished to do so, subject to the following conditions:
-
-    The above copyright notice and this permission notice shall be included in all
-    copies or substantial portions of the Software.
-
-    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-    SOFTWARE.
