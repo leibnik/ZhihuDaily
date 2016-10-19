@@ -24,8 +24,10 @@
 
     <EditText
         android:id="@+id/username_et"
-        android:layout_width="250dp"
+        android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
         android:background="@drawable/register_login_et_selector"
         android:drawableLeft="@drawable/account"
         android:drawablePadding="8dp"
@@ -37,8 +39,10 @@
         android:textCursorDrawable="@drawable/cursor_shape"/>
 
     <LinearLayout
-        android:layout_width="250dp"
+        android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
         android:layout_marginTop="25dp"
         android:orientation="horizontal">
 
@@ -65,8 +69,10 @@
 
     <EditText
         android:id="@+id/password_et"
-        android:layout_width="250dp"
+        android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
         android:layout_marginTop="25dp"
         android:background="@drawable/register_login_et_selector"
         android:drawableLeft="@drawable/password"
@@ -81,7 +87,7 @@
 
     <Button
         android:id="@+id/register_btn"
-        android:layout_width="120dp"
+        android:layout_width="158dp"
         android:layout_height="50dp"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="30dp"
