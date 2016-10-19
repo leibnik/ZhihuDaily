@@ -9,11 +9,11 @@
 * 该项目集成了Bmob SDK用于登陆，注册，收藏，修改密码，修改用户名，上传头像，项目已含有Application Id无需自行申请。
 
 ###效果图
-![](http://ww3.sinaimg.cn/mw690/b5405c76gw1f2gxioolg8j21bu0v2al1.jpg)
-![](http://ww1.sinaimg.cn/mw690/b5405c76gw1f2gxiazwj9j21bq0v2dwo.jpg)
-![](http://ww1.sinaimg.cn/mw690/b5405c76gw1f2gxi50polj21bu0v2n8o.jpg)
-![](http://ww3.sinaimg.cn/mw690/b5405c76gw1f2gxikcd56j21bq0v27jk.jpg)
-![](http://ww2.sinaimg.cn/mw690/b5405c76gw1f2gxig3efij21bk0v2aks.jpg)
+![](http://ww4.sinaimg.cn/bmiddle/b5405c76gw1f8xzrnsbjvj20xm1tz15k.jpg)
+![](http://ww3.sinaimg.cn/bmiddle/b5405c76gw1f8xzrtc4jlj20xm1tz4fz.jpg)
+
+![](http://ww1.sinaimg.cn/bmiddle/b5405c76gw1f8xzs1mxxjj20xm1tzqf2.jpg)
+![](http://ww2.sinaimg.cn/bmiddle/b5405c76gw1f8xzsbxvfij20xm1tz4fz.jpg)
 
 
 ### 开源依赖库
