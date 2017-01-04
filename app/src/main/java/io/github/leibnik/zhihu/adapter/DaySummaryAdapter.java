@@ -143,9 +143,11 @@ public class DaySummaryAdapter extends RecyclerView.Adapter<DaySummaryAdapter.Vi
                     v.getLocationOnScreen(location);
                     location[0] += v.getWidth() / 2;
                     Intent intent = new Intent(mContext, DayNewsDetailActivity.class);
-                    intent.putExtra("id", entity.getId());
+                    Summary summary = new Summary();
+                    summary.setId(entity.getId());
+                    summary.setTitle(entity.getTitle());
+                    intent.putExtra("summary", summary);
                     intent.putExtra("location", location);
-                    intent.putExtra("title", entity.getTitle());
                     mContext.startActivity(intent);
                 }
             });
