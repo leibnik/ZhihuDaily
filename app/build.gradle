@@ -5,7 +5,7 @@ android {
     buildToolsVersion "22.0.1"
     useLibrary 'org.apache.http.legacy'
     defaultConfig {
-        applicationId "io.github.leibnik.zhihu"
+        applicationId "com.nyakokishi.zhihu"
         minSdkVersion 16
         targetSdkVersion 22
         versionCode 1

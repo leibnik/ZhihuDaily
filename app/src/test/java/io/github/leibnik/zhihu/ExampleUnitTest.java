@@ -1,4 +1,4 @@
-package io.github.leibnik.zhihu;
+package com.nyakokishi.zhihu;
 
 import org.junit.Test;
 
