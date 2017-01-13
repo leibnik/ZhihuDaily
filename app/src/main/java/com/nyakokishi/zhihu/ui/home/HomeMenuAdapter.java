@@ -1,4 +1,4 @@
-package com.nyakokishi.zhihu.adapter;
+package com.nyakokishi.zhihu.ui.home;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -16,7 +16,7 @@ import com.nyakokishi.zhihu.R;
 /**
  * Created by Droidroid on 2016/3/22.
  */
-public class ThemesAdapter extends RecyclerView.Adapter<ThemesAdapter.ViewHolder> {
+public class HomeMenuAdapter extends RecyclerView.Adapter<HomeMenuAdapter.ViewHolder> {
 
     private List<Themes> data;
     private OnItemClickListener onItemClickListener = null;
@@ -41,7 +41,7 @@ public class ThemesAdapter extends RecyclerView.Adapter<ThemesAdapter.ViewHolder
         }
     }
 
-    public ThemesAdapter(Context context, List<Themes> data, int currentThemeId) {
+    public HomeMenuAdapter(Context context, List<Themes> data, int currentThemeId) {
         this.data = data;
         this.currentThemeId = currentThemeId;
         this.mContext = context;
@@ -54,7 +54,7 @@ public class ThemesAdapter extends RecyclerView.Adapter<ThemesAdapter.ViewHolder
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_menu_themes, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_main_menu, parent, false);
         return new ViewHolder(view);
     }
 

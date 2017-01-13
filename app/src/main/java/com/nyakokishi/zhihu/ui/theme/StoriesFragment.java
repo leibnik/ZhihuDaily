@@ -1,4 +1,4 @@
-package com.nyakokishi.zhihu.ui.fragment;
+package com.nyakokishi.zhihu.ui.theme;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,34 +13,33 @@ import android.view.ViewGroup;
 
 import com.alibaba.fastjson.JSON;
 import com.loopj.android.http.TextHttpResponseHandler;
+import com.nyakokishi.zhihu.ui.theme.detail.StoryDetailActivity;
 import com.victor.loading.rotate.RotateLoading;
 
 import org.apache.http.Header;
 
 import butterknife.Bind;
 import com.nyakokishi.zhihu.R;
-import com.nyakokishi.zhihu.adapter.ThemeSummaryAdapter;
 import com.nyakokishi.zhihu.base.BaseFragment;
 import com.nyakokishi.zhihu.constant.Constant;
 import com.nyakokishi.zhihu.entity.NewsTheme;
 import com.nyakokishi.zhihu.entity.Summary;
-import com.nyakokishi.zhihu.ui.activity.MainActivity;
-import com.nyakokishi.zhihu.ui.activity.ThemeNewsDetailActivity;
+import com.nyakokishi.zhihu.ui.MainActivity;
 import com.nyakokishi.zhihu.util.HttpUtil;
 
 /**
  * Created by Droidroid on 2016/3/23.
  */
-public class ThemeNewsFragment extends BaseFragment {
+public class StoriesFragment extends BaseFragment {
 
     @Bind(R.id.news_lv)
     RecyclerView mRecyclerView;
     @Bind(R.id.rotateloading)
     RotateLoading mRotateLoading;
 
-    public static final String TAG = "ThemeNewsFragment";
+    public static final String TAG = "StoriesFragment";
     private int id;
-    private ThemeSummaryAdapter mAdapter;
+    private StoriesAdapter mAdapter;
 
     @Override
     public void initVariables() {
@@ -51,7 +50,7 @@ public class ThemeNewsFragment extends BaseFragment {
 
     @Override
     public int setLayout() {
-        return R.layout.fragment_theme_news;
+        return R.layout.fragment_theme_stories;
     }
 
     @Override
@@ -108,19 +107,19 @@ public class ThemeNewsFragment extends BaseFragment {
 
     private void parseResult(String responseString) {
         if (TextUtils.isEmpty(responseString)) {
-            mRecyclerView.setAdapter(new ThemeSummaryAdapter(mActivity, new NewsTheme()));
+            mRecyclerView.setAdapter(new StoriesAdapter(mActivity, new NewsTheme()));
             ((MainActivity) mActivity).showSnackBar("网络无连接");
             return;
         }
         NewsTheme newsTheme = JSON.parseObject(responseString, NewsTheme.class);
-        mAdapter = new ThemeSummaryAdapter(mActivity, newsTheme);
-        mAdapter.setOnItemClickListener(new ThemeSummaryAdapter.OnItemClickListener() {
+        mAdapter = new StoriesAdapter(mActivity, newsTheme);
+        mAdapter.setOnItemClickListener(new StoriesAdapter.OnItemClickListener() {
             @Override
             public void OnItemClick(View v, Summary data) {
                 int[] location = new int[2];
                 v.getLocationOnScreen(location);
                 location[0] += v.getWidth() / 2;
-                Intent intent = new Intent(mActivity, ThemeNewsDetailActivity.class);
+                Intent intent = new Intent(mActivity, StoryDetailActivity.class);
                 intent.putExtra("summary", data);
                 intent.putExtra("location", location);
                 startActivity(intent);

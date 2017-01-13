@@ -1,8 +1,7 @@
-package com.nyakokishi.zhihu.ui.fragment;
+package com.nyakokishi.zhihu.ui.daily;
 
 import android.content.Intent;
 import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
@@ -15,6 +14,7 @@ import android.view.ViewGroup;
 
 import com.alibaba.fastjson.JSON;
 import com.loopj.android.http.TextHttpResponseHandler;
+import com.nyakokishi.zhihu.ui.daily.detail.StoryDetailActivity;
 import com.victor.loading.rotate.RotateLoading;
 
 import org.apache.http.Header;
@@ -23,9 +23,7 @@ import java.util.List;
 
 import butterknife.Bind;
 import com.nyakokishi.zhihu.R;
-import com.nyakokishi.zhihu.ui.activity.DayNewsDetailActivity;
-import com.nyakokishi.zhihu.ui.activity.MainActivity;
-import com.nyakokishi.zhihu.adapter.DaySummaryAdapter;
+import com.nyakokishi.zhihu.ui.MainActivity;
 import com.nyakokishi.zhihu.base.BaseFragment;
 import com.nyakokishi.zhihu.constant.Constant;
 import com.nyakokishi.zhihu.entity.NewsADay;
@@ -36,15 +34,15 @@ import com.nyakokishi.zhihu.util.HttpUtil;
 /**
  * Created by Droidroid on 2016/3/22.
  */
-public class DayNewsFragment extends BaseFragment {
+public class StoriesFragment extends BaseFragment {
 
     @Bind(R.id.recyclerview)
     RecyclerView mRecyclerView;
     @Bind(R.id.rotateloading)
     RotateLoading mRotateLoading;
 
-    public static final String TAG = "DayNewsFragment";
-    private DaySummaryAdapter mAdapter;
+    public static final String TAG = "StoriesFragment";
+    private StoriesAdapter mAdapter;
     private String date;
     private boolean isLoading = false;
     private boolean isColorTheme;
@@ -57,7 +55,7 @@ public class DayNewsFragment extends BaseFragment {
 
     @Override
     public int setLayout() {
-        return R.layout.fragment_day_news;
+        return R.layout.fragment_daily_stories;
     }
 
 
@@ -152,7 +150,7 @@ public class DayNewsFragment extends BaseFragment {
 
     private void handleResponse(String responseString) {
         if (TextUtils.isEmpty(responseString)) {
-            mRecyclerView.setAdapter(new DaySummaryAdapter(mActivity, new NewsADay(), isColorTheme));
+            mRecyclerView.setAdapter(new StoriesAdapter(mActivity, new NewsADay(), isColorTheme));
 
             ((MainActivity) mActivity).showSnackBar("网络无连接");
             return;
@@ -165,14 +163,14 @@ public class DayNewsFragment extends BaseFragment {
         summary.setType(Constant.DAILY_DATE);
         result.add(0, summary);
         newsADay.setStories(result);
-        mAdapter = new DaySummaryAdapter(getActivity(), newsADay, isColorTheme);
-        mAdapter.setOnItemClickListener(new DaySummaryAdapter.OnItemClickListener() {
+        mAdapter = new StoriesAdapter(getActivity(), newsADay, isColorTheme);
+        mAdapter.setOnItemClickListener(new StoriesAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View view, Summary data) {
                 int[] location = new int[2];
                 view.getLocationOnScreen(location);
                 location[0] += view.getWidth() / 2;
-                Intent intent = new Intent(mActivity, DayNewsDetailActivity.class);
+                Intent intent = new Intent(mActivity, StoryDetailActivity.class);
                 intent.putExtra("summary", data);
                 intent.putExtra("location", location);
                 startActivity(intent);

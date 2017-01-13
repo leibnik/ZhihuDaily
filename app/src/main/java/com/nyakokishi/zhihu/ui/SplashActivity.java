@@ -1,8 +1,7 @@
-package com.nyakokishi.zhihu.ui.activity;
+package com.nyakokishi.zhihu.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.animation.Animation;
 import android.view.animation.AnimationSet;
 import android.view.animation.ScaleAnimation;
@@ -10,15 +9,10 @@ import android.view.animation.TranslateAnimation;
 import android.widget.ImageView;
 
 import butterknife.Bind;
-import cn.bmob.v3.BmobUser;
-import cn.bmob.v3.exception.BmobException;
-import cn.bmob.v3.listener.LogInListener;
+
 import com.nyakokishi.zhihu.R;
-import com.nyakokishi.zhihu.ZhihuApplication;
 import com.nyakokishi.zhihu.base.BaseActivity;
-import com.nyakokishi.zhihu.entity.User;
-import com.nyakokishi.zhihu.manager.LoginManager;
-import com.nyakokishi.zhihu.util.PreferenceUtil;
+import com.nyakokishi.zhihu.ui.MainActivity;
 
 /**
  * Created by Droidroid on 2016/3/22.

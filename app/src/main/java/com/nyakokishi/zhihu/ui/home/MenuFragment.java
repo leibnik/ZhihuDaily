@@ -1,17 +1,14 @@
-package com.nyakokishi.zhihu.ui.fragment;
+package com.nyakokishi.zhihu.ui.home;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.Shader;
 import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,6 +19,8 @@ import android.widget.TextView;
 import com.alibaba.fastjson.JSON;
 import com.bumptech.glide.Glide;
 import com.loopj.android.http.TextHttpResponseHandler;
+import com.nyakokishi.zhihu.ui.MainActivity;
+import com.nyakokishi.zhihu.ui.theme.StoriesFragment;
 import com.victor.loading.rotate.RotateLoading;
 
 import org.apache.http.Header;
@@ -37,15 +36,13 @@ import com.nyakokishi.zhihu.entity.User;
 import com.nyakokishi.zhihu.manager.LoginManager;
 import com.nyakokishi.zhihu.manager.UpdateInfoManager;
 import com.nyakokishi.zhihu.task.TaskBlurBackground;
-import com.nyakokishi.zhihu.ui.activity.LoginActivity;
-import com.nyakokishi.zhihu.ui.activity.MainActivity;
+import com.nyakokishi.zhihu.ui.login.LoginActivity;
 import com.nyakokishi.zhihu.entity.Themes;
 import com.nyakokishi.zhihu.R;
-import com.nyakokishi.zhihu.ZhihuApplication;
-import com.nyakokishi.zhihu.adapter.ThemesAdapter;
+import com.nyakokishi.zhihu.ui.ZhihuApplication;
 import com.nyakokishi.zhihu.base.BaseFragment;
 import com.nyakokishi.zhihu.constant.Constant;
-import com.nyakokishi.zhihu.ui.activity.ProfileActivity;
+import com.nyakokishi.zhihu.ui.profile.ProfileActivity;
 import com.nyakokishi.zhihu.util.HttpUtil;
 import com.nyakokishi.zhihu.util.PreferenceUtil;
 import com.nyakokishi.zhihu.view.DividerItemDecoration;
@@ -66,7 +63,7 @@ public class MenuFragment extends BaseFragment {
     @Bind(R.id.rotateloading)
     RotateLoading rotateLoading;
 
-    private ThemesAdapter adapter;
+    private HomeMenuAdapter adapter;
     private int currentThemeId = 999;
     private String background;
 
@@ -213,9 +210,9 @@ public class MenuFragment extends BaseFragment {
         home.setName("首页");
         home.setId(999);
         data.add(0, home);
-        adapter = new ThemesAdapter(mActivity, data, currentThemeId);
+        adapter = new HomeMenuAdapter(mActivity, data, currentThemeId);
         themesLv.setAdapter(adapter);
-        adapter.setOnItemClickListener(new ThemesAdapter.OnItemClickListener() {
+        adapter.setOnItemClickListener(new HomeMenuAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View view, Object data) {
                 BaseFragment fragment;
@@ -232,9 +229,9 @@ public class MenuFragment extends BaseFragment {
                 bundle.putInt("id", id);
                 bundle.putBoolean("isColorTheme", isColorTheme);
                 if (id == 999) {
-                    fragment = new DayNewsFragment();
+                    fragment = new com.nyakokishi.zhihu.ui.daily.StoriesFragment();
                 } else {
-                    fragment = new ThemeNewsFragment();
+                    fragment = new StoriesFragment();
                 }
                 fragment.setArguments(bundle);
                 getFragmentManager().beginTransaction().setCustomAnimations(

@@ -1,4 +1,4 @@
-package com.nyakokishi.zhihu.ui.activity;
+package com.nyakokishi.zhihu.ui.profile;
 
 import android.content.Intent;
 import android.database.Cursor;
@@ -35,12 +35,10 @@ import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.datatype.BmobFile;
 import cn.bmob.v3.listener.FindListener;
-import cn.bmob.v3.listener.SaveListener;
 import cn.bmob.v3.listener.UpdateListener;
 import cn.bmob.v3.listener.UploadFileListener;
 import com.nyakokishi.zhihu.R;
-import com.nyakokishi.zhihu.ZhihuApplication;
-import com.nyakokishi.zhihu.adapter.StarSummaryAdapter;
+import com.nyakokishi.zhihu.ui.ZhihuApplication;
 import com.nyakokishi.zhihu.base.BaseActivity;
 import com.nyakokishi.zhihu.constant.Constant;
 import com.nyakokishi.zhihu.entity.Summary;
@@ -48,8 +46,9 @@ import com.nyakokishi.zhihu.entity.User;
 import com.nyakokishi.zhihu.manager.LoginManager;
 import com.nyakokishi.zhihu.manager.UpdateInfoManager;
 import com.nyakokishi.zhihu.task.TaskBlurBackground;
-import com.nyakokishi.zhihu.ui.dialog.EditPasswordDialog;
-import com.nyakokishi.zhihu.ui.dialog.EditUsernameDialog;
+import com.nyakokishi.zhihu.ui.theme.detail.StoryDetailActivity;
+import com.nyakokishi.zhihu.dialog.EditPasswordDialog;
+import com.nyakokishi.zhihu.dialog.EditUsernameDialog;
 import com.nyakokishi.zhihu.util.BitmapUtil;
 import com.nyakokishi.zhihu.util.PreferenceUtil;
 
@@ -80,7 +79,7 @@ public class ProfileActivity extends BaseActivity {
     private boolean isLoading = false;
     private boolean isColorTheme = true;
     private boolean isAutoLogin = false;
-    private StarSummaryAdapter mAdapter;
+    private StarStoriesAdapter mAdapter;
 
     @Override
     protected void initVariables() {
@@ -214,8 +213,8 @@ public class ProfileActivity extends BaseActivity {
         if (ZhihuApplication.user == null) {
             return;
         }
-        mAdapter = new StarSummaryAdapter(ProfileActivity.this);
-        mAdapter.setOnItemClickListener(new StarSummaryAdapter.OnItemClickListener() {
+        mAdapter = new StarStoriesAdapter(ProfileActivity.this);
+        mAdapter.setOnItemClickListener(new StarStoriesAdapter.OnItemClickListener() {
             @Override
             public void OnItemClick(View v, Summary data) {
                 Intent intent = null;
@@ -223,9 +222,9 @@ public class ProfileActivity extends BaseActivity {
                 v.getLocationOnScreen(location);
                 location[0] += v.getWidth() / 2;
                 if (data.getType() == Constant.TYPE_DAY_DETAIL) {
-                    intent = new Intent(getApplicationContext(), DayNewsDetailActivity.class);
+                    intent = new Intent(getApplicationContext(), com.nyakokishi.zhihu.ui.daily.detail.StoryDetailActivity.class);
                 } else if (data.getType() == Constant.TYPE_THEME_DETAIL) {
-                    intent = new Intent(getApplicationContext(), ThemeNewsDetailActivity.class);
+                    intent = new Intent(getApplicationContext(), StoryDetailActivity.class);
                 }
                 if (intent != null) {
                     intent.putExtra("summary", data);

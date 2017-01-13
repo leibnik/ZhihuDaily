@@ -1,4 +1,4 @@
-package com.nyakokishi.zhihu;
+package com.nyakokishi.zhihu.ui;
 
 import android.app.Application;
 

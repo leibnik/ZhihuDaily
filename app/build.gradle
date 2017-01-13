@@ -10,6 +10,8 @@ android {
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
+
+        buildConfigField "String", "BMOB_APP_ID", "\"0dd7abc33c4d53c35ca5145f376aa6e8\""
     }
     buildTypes {
         release {

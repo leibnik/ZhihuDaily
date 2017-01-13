@@ -37,7 +37,7 @@
 
     <fragment
         android:id="@+id/menu_fragment"
-        android:name="com.nyakokishi.zhihu.ui.fragment.MenuFragment"
+        android:name="com.nyakokishi.zhihu.ui.home.MenuFragment"
         android:layout_width="300dp"
         android:layout_height="match_parent"
         android:layout_gravity="left"/>

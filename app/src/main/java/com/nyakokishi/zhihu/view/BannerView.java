@@ -91,7 +91,7 @@ public class BannerView extends FrameLayout implements OnClickListener {
 
     private void initUI() {
         View view = LayoutInflater.from(context).inflate(
-                R.layout.banner_layout, this, true);
+                R.layout.view_banner_layout, this, true);
         vp = (ViewPager) view.findViewById(R.id.vp);
         ll_dot = (LinearLayout) view.findViewById(R.id.ll_dot);
         ll_dot.removeAllViews();
@@ -115,7 +115,7 @@ public class BannerView extends FrameLayout implements OnClickListener {
 
         for (int i = 0; i <= len + 1; i++) {
             View fm = LayoutInflater.from(context).inflate(
-                    R.layout.banner_content_layout, null);
+                    R.layout.view_banner_content_layout, null);
             ImageView iv = (ImageView) fm.findViewById(R.id.iv_title);
             TextView tv_title = (TextView) fm.findViewById(R.id.tv_title);
             iv.setScaleType(ScaleType.CENTER_CROP);

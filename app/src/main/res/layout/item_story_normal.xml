@@ -39,7 +39,7 @@
         android:scaleType="fitXY"
         android:visibility="gone"/>
 
-    <com.nyakokishi.zhihu.view.JustifyTextView
+    <TextView
         android:id="@+id/summary_tv"
         android:layout_width="match_parent"
         android:layout_height="80dp"

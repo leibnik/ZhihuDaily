@@ -1,4 +1,4 @@
-package com.nyakokishi.zhihu.ui.dialog;
+package com.nyakokishi.zhihu.dialog;
 
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
@@ -34,7 +34,7 @@ public class EditPasswordDialog extends BaseActivity {
 
     @Override
     protected int setLayout() {
-        return R.layout.dialog_edit_password;
+        return R.layout.view_dialog_edit_password;
     }
 
     @Override

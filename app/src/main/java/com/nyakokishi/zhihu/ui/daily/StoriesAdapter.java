@@ -1,4 +1,4 @@
-package com.nyakokishi.zhihu.adapter;
+package com.nyakokishi.zhihu.ui.daily;
 
 import android.content.Context;
 import android.content.Intent;
@@ -18,14 +18,13 @@ import com.nyakokishi.zhihu.R;
 import com.nyakokishi.zhihu.constant.Constant;
 import com.nyakokishi.zhihu.entity.NewsADay;
 import com.nyakokishi.zhihu.entity.Summary;
-import com.nyakokishi.zhihu.ui.activity.DayNewsDetailActivity;
+import com.nyakokishi.zhihu.ui.daily.detail.StoryDetailActivity;
 import com.nyakokishi.zhihu.view.BannerView;
-import com.nyakokishi.zhihu.view.JustifyTextView;
 
 /**
  * Created by Droidroid on 2016/3/22.
  */
-public class DaySummaryAdapter extends RecyclerView.Adapter<DaySummaryAdapter.ViewHolder> {
+public class StoriesAdapter extends RecyclerView.Adapter<StoriesAdapter.ViewHolder> {
 
     private List<Summary> data;
     private List<NewsADay.TopStories> topStories;
@@ -42,7 +41,7 @@ public class DaySummaryAdapter extends RecyclerView.Adapter<DaySummaryAdapter.Vi
         notifyDataSetChanged();
     }
 
-    public DaySummaryAdapter(Context context, NewsADay newsADay, boolean isColorTheme) {
+    public StoriesAdapter(Context context, NewsADay newsADay, boolean isColorTheme) {
         mContext = context;
         this.topStories = newsADay.getTop_stories();
         this.data = newsADay.getStories();
@@ -55,7 +54,7 @@ public class DaySummaryAdapter extends RecyclerView.Adapter<DaySummaryAdapter.Vi
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {
-        JustifyTextView tvTitle;
+        TextView tvTitle;
         TextView tvTime;
         ImageView ivTitle;
         BannerView bannerView;
@@ -71,7 +70,7 @@ public class DaySummaryAdapter extends RecyclerView.Adapter<DaySummaryAdapter.Vi
             }
             if (viewType == IS_NORMAL) {
                 tvTime = (TextView) itemView.findViewById(R.id.time_tv);
-                tvTitle = (JustifyTextView) itemView.findViewById(R.id.summary_tv);
+                tvTitle = (TextView) itemView.findViewById(R.id.summary_tv);
                 ivTitle = (ImageView) itemView.findViewById(R.id.summary_iv);
                 rlCard = (RelativeLayout) itemView.findViewById(R.id.card_rl);
             }
@@ -82,13 +81,13 @@ public class DaySummaryAdapter extends RecyclerView.Adapter<DaySummaryAdapter.Vi
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         if (viewType == IS_HEADER) {
-            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_day_summary_header, parent, false);
+            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_daily_story_header, parent, false);
             return new ViewHolder(view, viewType);
         } else if (viewType == IS_FOOTER) {
-            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_summary_footer, parent, false);
+            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_story_footer, parent, false);
             return new ViewHolder(view, viewType);
         } else {
-            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_summary_normal, parent, false);
+            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_story_normal, parent, false);
             return new ViewHolder(view, viewType);
         }
 
@@ -142,7 +141,7 @@ public class DaySummaryAdapter extends RecyclerView.Adapter<DaySummaryAdapter.Vi
                     int[] location = new int[2];
                     v.getLocationOnScreen(location);
                     location[0] += v.getWidth() / 2;
-                    Intent intent = new Intent(mContext, DayNewsDetailActivity.class);
+                    Intent intent = new Intent(mContext, StoryDetailActivity.class);
                     Summary summary = new Summary();
                     summary.setId(entity.getId());
                     summary.setTitle(entity.getTitle());

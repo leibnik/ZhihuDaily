@@ -1,6 +1,5 @@
-package com.nyakokishi.zhihu.ui.dialog;
+package com.nyakokishi.zhihu.dialog;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.text.TextUtils;
@@ -12,7 +11,7 @@ import butterknife.Bind;
 import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.listener.UpdateListener;
 import com.nyakokishi.zhihu.R;
-import com.nyakokishi.zhihu.ZhihuApplication;
+import com.nyakokishi.zhihu.ui.ZhihuApplication;
 import com.nyakokishi.zhihu.base.BaseActivity;
 import com.nyakokishi.zhihu.entity.User;
 
@@ -27,7 +26,7 @@ public class EditUsernameDialog extends BaseActivity{
 
     @Override
     protected int setLayout() {
-        return R.layout.dialog_edit_username;
+        return R.layout.view_dialog_edit_username;
     }
 
     @Override

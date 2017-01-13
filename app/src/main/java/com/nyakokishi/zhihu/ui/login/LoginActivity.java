@@ -1,4 +1,4 @@
-package com.nyakokishi.zhihu.ui.activity;
+package com.nyakokishi.zhihu.ui.login;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,11 +15,11 @@ import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.LogInListener;
 import com.nyakokishi.zhihu.R;
-import com.nyakokishi.zhihu.ZhihuApplication;
+import com.nyakokishi.zhihu.ui.ZhihuApplication;
 import com.nyakokishi.zhihu.base.BaseActivity;
-import com.nyakokishi.zhihu.constant.Constant;
 import com.nyakokishi.zhihu.entity.User;
 import com.nyakokishi.zhihu.manager.LoginManager;
+import com.nyakokishi.zhihu.ui.profile.ProfileActivity;
 import com.nyakokishi.zhihu.util.MD5Util;
 import com.nyakokishi.zhihu.util.PreferenceUtil;
 

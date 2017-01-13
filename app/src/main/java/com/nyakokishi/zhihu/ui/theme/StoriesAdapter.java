@@ -1,4 +1,4 @@
-package com.nyakokishi.zhihu.adapter;
+package com.nyakokishi.zhihu.ui.theme;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -16,12 +16,11 @@ import java.util.List;
 import com.nyakokishi.zhihu.R;
 import com.nyakokishi.zhihu.entity.NewsTheme;
 import com.nyakokishi.zhihu.entity.Summary;
-import com.nyakokishi.zhihu.view.JustifyTextView;
 
 /**
  * Created by Droidroid on 2016/3/24.
  */
-public class ThemeSummaryAdapter extends RecyclerView.Adapter<ThemeSummaryAdapter.ViewHolder> {
+public class StoriesAdapter extends RecyclerView.Adapter<StoriesAdapter.ViewHolder> {
 
     private List<Summary> mData;
     private String mTitle;
@@ -47,14 +46,14 @@ public class ThemeSummaryAdapter extends RecyclerView.Adapter<ThemeSummaryAdapte
 
     class ViewHolder extends RecyclerView.ViewHolder {
 
-        JustifyTextView itemTv;
+        TextView itemTv;
         ImageView itemIv, headerIv;
         TextView headerTv;
 
         public ViewHolder(View itemView, int viewType) {
             super(itemView);
             if (viewType == IS_NORMAL) {
-                itemTv = (JustifyTextView) itemView.findViewById(R.id.summary_tv);
+                itemTv = (TextView) itemView.findViewById(R.id.summary_tv);
                 itemIv = (ImageView) itemView.findViewById(R.id.summary_iv);
             }
             if (viewType == IS_HEADER) {
@@ -64,7 +63,7 @@ public class ThemeSummaryAdapter extends RecyclerView.Adapter<ThemeSummaryAdapte
         }
     }
 
-    public ThemeSummaryAdapter(Context context, NewsTheme data) {
+    public StoriesAdapter(Context context, NewsTheme data) {
         this.mData = data.getStories();
         this.mTitle = data.getDescription();
         this.mImageUrl = data.getBackground();
@@ -74,10 +73,10 @@ public class ThemeSummaryAdapter extends RecyclerView.Adapter<ThemeSummaryAdapte
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         if (viewType == IS_HEADER) {
-            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_theme_summary_header, parent, false);
+            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_theme_story_header, parent, false);
             return new ViewHolder(view, viewType);
         } else {
-            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_summary_normal, parent, false);
+            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_story_normal, parent, false);
             return new ViewHolder(view, viewType);
         }
     }

@@ -1,7 +1,6 @@
-package com.nyakokishi.zhihu.adapter;
+package com.nyakokishi.zhihu.ui.profile;
 
 import android.content.Context;
-import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,17 +14,12 @@ import com.bumptech.glide.Glide;
 import java.util.List;
 
 import com.nyakokishi.zhihu.R;
-import com.nyakokishi.zhihu.constant.Constant;
 import com.nyakokishi.zhihu.entity.Summary;
-import com.nyakokishi.zhihu.entity.User;
-import com.nyakokishi.zhihu.ui.activity.ProfileActivity;
-import com.nyakokishi.zhihu.ui.dialog.EditUsernameDialog;
-import com.nyakokishi.zhihu.view.JustifyTextView;
 
 /**
  * Created by Droidroid on 2016/3/30.
  */
-public class StarSummaryAdapter extends RecyclerView.Adapter<StarSummaryAdapter.ViewHolder> {
+public class StarStoriesAdapter extends RecyclerView.Adapter<StarStoriesAdapter.ViewHolder> {
     private Context mContext;
     private List<Summary> mData;
     public static final int MODE_NORMAL = 1;
@@ -48,7 +42,7 @@ public class StarSummaryAdapter extends RecyclerView.Adapter<StarSummaryAdapter.
         this.mOnItemClickListener = listener;
     }
 
-    public StarSummaryAdapter(Context context) {
+    public StarStoriesAdapter(Context context) {
         this.mContext = context;
     }
 
@@ -65,10 +59,10 @@ public class StarSummaryAdapter extends RecyclerView.Adapter<StarSummaryAdapter.
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         if (viewType == MODE_NORMAL) {
-            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_summary_normal, parent, false);
+            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_story_normal, parent, false);
             return new ViewHolder(view, viewType);
         } else {
-            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_summary_footer, parent, false);
+            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_story_footer, parent, false);
             return new ViewHolder(view, viewType);
         }
     }
@@ -121,14 +115,14 @@ public class StarSummaryAdapter extends RecyclerView.Adapter<StarSummaryAdapter.
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {
-        JustifyTextView itemTv;
+        TextView itemTv;
         ImageView itemIv;
         ProgressBar progressBar;
 
         public ViewHolder(View itemView, int viewType) {
             super(itemView);
             if (viewType == MODE_NORMAL) {
-                itemTv = (JustifyTextView) itemView.findViewById(R.id.summary_tv);
+                itemTv = (TextView) itemView.findViewById(R.id.summary_tv);
                 itemIv = (ImageView) itemView.findViewById(R.id.summary_iv);
             }
             if (viewType == MODE_FOOTER) {

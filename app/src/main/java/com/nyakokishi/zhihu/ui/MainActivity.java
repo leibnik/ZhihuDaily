@@ -1,4 +1,4 @@
-package com.nyakokishi.zhihu.ui.activity;
+package com.nyakokishi.zhihu.ui;
 
 import android.content.Intent;
 import android.database.Cursor;
@@ -24,14 +24,13 @@ import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.LogInListener;
 import com.nyakokishi.zhihu.R;
-import com.nyakokishi.zhihu.ZhihuApplication;
 import com.nyakokishi.zhihu.base.BaseActivity;
 import com.nyakokishi.zhihu.base.BaseFragment;
 import com.nyakokishi.zhihu.constant.Constant;
 import com.nyakokishi.zhihu.entity.User;
 import com.nyakokishi.zhihu.manager.LoginManager;
-import com.nyakokishi.zhihu.ui.fragment.DayNewsFragment;
-import com.nyakokishi.zhihu.ui.fragment.MenuFragment;
+import com.nyakokishi.zhihu.ui.daily.StoriesFragment;
+import com.nyakokishi.zhihu.ui.home.MenuFragment;
 import com.nyakokishi.zhihu.util.DisplayUtil;
 import com.nyakokishi.zhihu.util.MD5Util;
 import com.nyakokishi.zhihu.util.PreferenceUtil;
@@ -129,7 +128,7 @@ public class MainActivity extends BaseActivity {
     }
 
     private void initFragment() {
-        DayNewsFragment dayNewsFragment = new DayNewsFragment();
+        StoriesFragment dayNewsFragment = new StoriesFragment();
         Bundle bundle = new Bundle();
         bundle.putBoolean("isColorTheme", isColorTheme);
         dayNewsFragment.setArguments(bundle);
