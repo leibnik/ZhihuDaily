@@ -1,9 +1,9 @@
 package com.nyakokishi.data;
 
 import com.nyakokishi.data.data.StoryDetail;
-import com.nyakokishi.data.data.Subject;
-import com.nyakokishi.data.data.Subjects;
-import com.nyakokishi.data.data.Today;
+import com.nyakokishi.data.data.Theme;
+import com.nyakokishi.data.data.Themes;
+import com.nyakokishi.data.data.Daily;
 
 import rx.Observable;
 
@@ -18,7 +18,7 @@ public class ZhihuModel {
      *
      * @return
      */
-    public static Observable<Subjects> getSubjects() {
+    public static Observable<Themes> getSubjects() {
         return HttpService.getInstance().api.getSubjects();
     }
 
@@ -28,7 +28,7 @@ public class ZhihuModel {
      * @param id
      * @return
      */
-    public static Observable<Subject> getSubjectById(String id) {
+    public static Observable<Theme> getSubjectById(String id) {
         return HttpService.getInstance().api.getSubjectById(id);
     }
 
@@ -37,7 +37,7 @@ public class ZhihuModel {
      *
      * @return
      */
-    public static Observable<Today> getTodayStories() {
+    public static Observable<Daily> getTodayStories() {
         return HttpService.getInstance().api.getTodayStroies();
     }
 
@@ -47,7 +47,7 @@ public class ZhihuModel {
      * @param date
      * @return
      */
-    public static Observable<Today> getOlderStories(String date) {
+    public static Observable<Daily> getOlderStories(String date) {
         return HttpService.getInstance().api.getOldStroies(date);
     }
 

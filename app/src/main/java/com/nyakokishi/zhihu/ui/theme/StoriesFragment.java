@@ -13,6 +13,8 @@ import android.view.ViewGroup;
 
 import com.alibaba.fastjson.JSON;
 import com.loopj.android.http.TextHttpResponseHandler;
+import com.nyakokishi.data.data.Story;
+import com.nyakokishi.data.data.Theme;
 import com.nyakokishi.zhihu.ui.theme.detail.StoryDetailActivity;
 import com.victor.loading.rotate.RotateLoading;
 
@@ -22,8 +24,6 @@ import butterknife.Bind;
 import com.nyakokishi.zhihu.R;
 import com.nyakokishi.zhihu.base.BaseFragment;
 import com.nyakokishi.zhihu.constant.Constant;
-import com.nyakokishi.zhihu.entity.NewsTheme;
-import com.nyakokishi.zhihu.entity.Summary;
 import com.nyakokishi.zhihu.ui.MainActivity;
 import com.nyakokishi.zhihu.util.HttpUtil;
 
@@ -107,15 +107,15 @@ public class StoriesFragment extends BaseFragment {
 
     private void parseResult(String responseString) {
         if (TextUtils.isEmpty(responseString)) {
-            mRecyclerView.setAdapter(new StoriesAdapter(mActivity, new NewsTheme()));
+            mRecyclerView.setAdapter(new StoriesAdapter(mActivity, new Theme()));
             ((MainActivity) mActivity).showSnackBar("网络无连接");
             return;
         }
-        NewsTheme newsTheme = JSON.parseObject(responseString, NewsTheme.class);
+        Theme newsTheme = JSON.parseObject(responseString, Theme.class);
         mAdapter = new StoriesAdapter(mActivity, newsTheme);
         mAdapter.setOnItemClickListener(new StoriesAdapter.OnItemClickListener() {
             @Override
-            public void OnItemClick(View v, Summary data) {
+            public void OnItemClick(View v, Story data) {
                 int[] location = new int[2];
                 v.getLocationOnScreen(location);
                 location[0] += v.getWidth() / 2;

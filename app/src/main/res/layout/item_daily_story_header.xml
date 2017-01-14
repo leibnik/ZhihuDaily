@@ -5,7 +5,7 @@
               android:layout_marginBottom="3dp"
               android:orientation="vertical">
 
-    <com.nyakokishi.zhihu.view.BannerView
+    <com.nyakokishi.zhihu.widget.BannerView
         android:id="@+id/banner"
         android:layout_width="match_parent"
         android:layout_height="220dp"/>

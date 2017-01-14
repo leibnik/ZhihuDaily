@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import java.util.List;
 
-import com.nyakokishi.zhihu.entity.Themes;
+import com.nyakokishi.data.data.Themes;
 import com.nyakokishi.zhihu.R;
 
 /**

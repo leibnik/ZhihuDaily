@@ -14,6 +14,8 @@ import android.view.ViewGroup;
 
 import com.alibaba.fastjson.JSON;
 import com.loopj.android.http.TextHttpResponseHandler;
+import com.nyakokishi.data.data.Story;
+import com.nyakokishi.data.data.Daily;
 import com.nyakokishi.zhihu.ui.daily.detail.StoryDetailActivity;
 import com.victor.loading.rotate.RotateLoading;
 
@@ -26,15 +28,13 @@ import com.nyakokishi.zhihu.R;
 import com.nyakokishi.zhihu.ui.MainActivity;
 import com.nyakokishi.zhihu.base.BaseFragment;
 import com.nyakokishi.zhihu.constant.Constant;
-import com.nyakokishi.zhihu.entity.NewsADay;
-import com.nyakokishi.zhihu.entity.Summary;
 import com.nyakokishi.zhihu.util.DateUtil;
 import com.nyakokishi.zhihu.util.HttpUtil;
 
 /**
  * Created by Droidroid on 2016/3/22.
  */
-public class StoriesFragment extends BaseFragment {
+public class StoriesFragment extends BaseFragment implements Contract.View {
 
     @Bind(R.id.recyclerview)
     RecyclerView mRecyclerView;
@@ -102,12 +102,12 @@ public class StoriesFragment extends BaseFragment {
     }
 
     private void handleBeforeNews(String responseString) {
-        NewsADay newsADay = JSON.parseObject(responseString, NewsADay.class);
-        List<Summary> result = newsADay.getStories();
-        Summary summary = new Summary();
-        summary.setTitle(DateUtil.parse(date));
-        summary.setType(Constant.DAILY_DATE);
-        result.add(0, summary);
+        Daily newsADay = JSON.parseObject(responseString, Daily.class);
+        List<Story> result = newsADay.getStories();
+        Story story = new Story();
+        story.setTitle(DateUtil.parse(date));
+        story.setType(Constant.DAILY_DATE);
+        result.add(0, story);
         newsADay.setStories(result);
         mAdapter.loadMore(newsADay);
         date = newsADay.getDate();
@@ -150,28 +150,28 @@ public class StoriesFragment extends BaseFragment {
 
     private void handleResponse(String responseString) {
         if (TextUtils.isEmpty(responseString)) {
-            mRecyclerView.setAdapter(new StoriesAdapter(mActivity, new NewsADay(), isColorTheme));
+            mRecyclerView.setAdapter(new StoriesAdapter(mActivity, new Daily(), isColorTheme));
 
             ((MainActivity) mActivity).showSnackBar("网络无连接");
             return;
         }
-        NewsADay newsADay = JSON.parseObject(responseString, NewsADay.class);
+        Daily newsADay = JSON.parseObject(responseString, Daily.class);
         date = newsADay.getDate();
-        List<Summary> result = newsADay.getStories();
-        Summary summary = new Summary();
-        summary.setTitle("今日最新");
-        summary.setType(Constant.DAILY_DATE);
-        result.add(0, summary);
+        List<Story> result = newsADay.getStories();
+        Story story = new Story();
+        story.setTitle("今日最新");
+        story.setType(Constant.DAILY_DATE);
+        result.add(0, story);
         newsADay.setStories(result);
         mAdapter = new StoriesAdapter(getActivity(), newsADay, isColorTheme);
         mAdapter.setOnItemClickListener(new StoriesAdapter.OnItemClickListener() {
             @Override
-            public void onItemClick(View view, Summary data) {
+            public void onItemClick(View view, Story data) {
                 int[] location = new int[2];
                 view.getLocationOnScreen(location);
                 location[0] += view.getWidth() / 2;
                 Intent intent = new Intent(mActivity, StoryDetailActivity.class);
-                intent.putExtra("summary", data);
+                intent.putExtra("story", data);
                 intent.putExtra("location", location);
                 startActivity(intent);
             }

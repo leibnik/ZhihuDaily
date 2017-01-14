@@ -14,10 +14,11 @@ import butterknife.Bind;
 import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.LogInListener;
+
+import com.nyakokishi.data.data.User;
 import com.nyakokishi.zhihu.R;
 import com.nyakokishi.zhihu.ui.ZhihuApplication;
 import com.nyakokishi.zhihu.base.BaseActivity;
-import com.nyakokishi.zhihu.entity.User;
 import com.nyakokishi.zhihu.manager.LoginManager;
 import com.nyakokishi.zhihu.ui.profile.ProfileActivity;
 import com.nyakokishi.zhihu.util.MD5Util;

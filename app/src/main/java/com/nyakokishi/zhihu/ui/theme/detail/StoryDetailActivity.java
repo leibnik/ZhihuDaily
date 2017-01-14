@@ -23,14 +23,15 @@ import org.apache.http.Header;
 import butterknife.Bind;
 import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.listener.SaveListener;
+
+import com.nyakokishi.data.data.Story;
+import com.nyakokishi.data.data.StoryDetail;
+import com.nyakokishi.data.data.User;
 import com.nyakokishi.zhihu.R;
 import com.nyakokishi.zhihu.base.BaseActivity;
 import com.nyakokishi.zhihu.constant.Constant;
-import com.nyakokishi.zhihu.entity.Detail;
-import com.nyakokishi.zhihu.entity.Summary;
-import com.nyakokishi.zhihu.entity.User;
 import com.nyakokishi.zhihu.util.HttpUtil;
-import com.nyakokishi.zhihu.view.RevealBackgroundView;
+import com.nyakokishi.zhihu.widget.RevealBackgroundView;
 
 /**
  * Created by Droidroid on 2016/3/25.
@@ -50,12 +51,12 @@ public class StoryDetailActivity extends BaseActivity implements RevealBackgroun
 
     private int[] location;
     public static final String TAG = "StoryDetailActivity";
-    private Summary mSummary;
+    private Story mStory;
 
     @Override
     protected void initVariables() {
         super.initVariables();
-        mSummary = (Summary) getIntent().getSerializableExtra("summary");
+        mStory = (Story) getIntent().getSerializableExtra("summary");
         location = getIntent().getIntArrayExtra("location");
     }
 
@@ -99,9 +100,9 @@ public class StoryDetailActivity extends BaseActivity implements RevealBackgroun
                             @Override
                             public boolean onMenuItemClick(MenuItem item) {
                                 Log.e(TAG, "收藏");
-                                mSummary.setUser(BmobUser.getCurrentUser(getApplicationContext(), User.class));
-                                mSummary.setType(Constant.TYPE_THEME_DETAIL);
-                                mSummary.save(getApplicationContext(), new SaveListener() {
+                                mStory.setUser(BmobUser.getCurrentUser(getApplicationContext(), User.class));
+                                mStory.setType(Constant.TYPE_THEME_DETAIL);
+                                mStory.save(getApplicationContext(), new SaveListener() {
                                     @Override
                                     public void onSuccess() {
                                         Snackbar.make(mCoordinatorLayout, "收藏成功", Snackbar.LENGTH_SHORT).show();
@@ -128,7 +129,7 @@ public class StoryDetailActivity extends BaseActivity implements RevealBackgroun
     protected void loadData() {
         if (HttpUtil.isNetworkAvailable(getApplicationContext())) {
 
-            HttpUtil.get(Constant.CONTENT + mSummary.getId(), new TextHttpResponseHandler() {
+            HttpUtil.get(Constant.CONTENT + mStory.getId(), new TextHttpResponseHandler() {
                 @Override
                 public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
 
@@ -137,11 +138,11 @@ public class StoryDetailActivity extends BaseActivity implements RevealBackgroun
                 @Override
                 public void onSuccess(int statusCode, Header[] headers, String responseString) {
                     handleResponse(responseString);
-                    mDBManager.saveDetail(responseString, mSummary.getId());
+                    mDBManager.saveDetail(responseString, mStory.getId());
                 }
             });
         } else {
-            handleResponse(mDBManager.getDetail(mSummary.getId()));
+            handleResponse(mDBManager.getDetail(mStory.getId()));
         }
     }
 
@@ -150,7 +151,7 @@ public class StoryDetailActivity extends BaseActivity implements RevealBackgroun
             Snackbar.make(mCoordinatorLayout, "网络无连接", Snackbar.LENGTH_SHORT).show();
             return;
         }
-        Detail data = JSON.parseObject(responseString, Detail.class);
+        StoryDetail data = JSON.parseObject(responseString, StoryDetail.class);
         String css = "<link rel=\"stylesheet\" href=\"file:///android_asset/css/news.css\" type=\"text/css\">";
         String html = "<html><head>" + css + "</head><body>" + data.getBody() + "</body></html>";
         html = html.replace("<div class=\"img-place-holder\">", "");

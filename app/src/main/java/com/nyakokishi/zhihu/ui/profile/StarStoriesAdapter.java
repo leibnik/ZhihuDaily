@@ -13,15 +13,15 @@ import com.bumptech.glide.Glide;
 
 import java.util.List;
 
+import com.nyakokishi.data.data.Story;
 import com.nyakokishi.zhihu.R;
-import com.nyakokishi.zhihu.entity.Summary;
 
 /**
  * Created by Droidroid on 2016/3/30.
  */
 public class StarStoriesAdapter extends RecyclerView.Adapter<StarStoriesAdapter.ViewHolder> {
     private Context mContext;
-    private List<Summary> mData;
+    private List<Story> mData;
     public static final int MODE_NORMAL = 1;
     public static final int MODE_FOOTER = 2;
     private OnItemClickListener mOnItemClickListener;
@@ -34,7 +34,7 @@ public class StarStoriesAdapter extends RecyclerView.Adapter<StarStoriesAdapter.
 
 
     public interface OnItemClickListener {
-        void OnItemClick(View v, Summary data);
+        void OnItemClick(View v, Story data);
     }
 
 
@@ -46,12 +46,12 @@ public class StarStoriesAdapter extends RecyclerView.Adapter<StarStoriesAdapter.
         this.mContext = context;
     }
 
-    public void setData(List<Summary> data) {
+    public void setData(List<Story> data) {
         this.mData = data;
         notifyDataSetChanged();
     }
 
-    public void addData(List<Summary> data) {
+    public void addData(List<Story> data) {
         this.mData.addAll(data);
         notifyDataSetChanged();
     }

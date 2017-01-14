@@ -7,7 +7,7 @@ import cn.bmob.v3.BmobObject;
 /**
  * Created by Droidroid on 2016/3/22.
  */
-public class Stories extends BmobObject{
+public class Story extends BmobObject{
     /*"stories": [
         {
             "images": [
@@ -69,8 +69,8 @@ public class Stories extends BmobObject{
     public boolean equals(Object o) {
         if (o == null) return false;
         if (this == o) return true;
-        if (o instanceof Stories){
-            Stories story = (Stories)o;
+        if (o instanceof Story){
+            Story story = (Story)o;
             if (story.id == this.id) return true;
         }
         return false;

@@ -13,16 +13,16 @@ import com.bumptech.glide.Glide;
 
 import java.util.List;
 
+import com.nyakokishi.data.data.Story;
+import com.nyakokishi.data.data.Theme;
 import com.nyakokishi.zhihu.R;
-import com.nyakokishi.zhihu.entity.NewsTheme;
-import com.nyakokishi.zhihu.entity.Summary;
 
 /**
  * Created by Droidroid on 2016/3/24.
  */
 public class StoriesAdapter extends RecyclerView.Adapter<StoriesAdapter.ViewHolder> {
 
-    private List<Summary> mData;
+    private List<Story> mData;
     private String mTitle;
     private String mImageUrl;
     private Context mContext;
@@ -36,7 +36,7 @@ public class StoriesAdapter extends RecyclerView.Adapter<StoriesAdapter.ViewHold
     }
 
     public interface OnItemClickListener {
-        void OnItemClick(View v, Summary data);
+        void OnItemClick(View v, Story data);
     }
 
 
@@ -63,7 +63,7 @@ public class StoriesAdapter extends RecyclerView.Adapter<StoriesAdapter.ViewHold
         }
     }
 
-    public StoriesAdapter(Context context, NewsTheme data) {
+    public StoriesAdapter(Context context, Theme data) {
         this.mData = data.getStories();
         this.mTitle = data.getDescription();
         this.mImageUrl = data.getBackground();

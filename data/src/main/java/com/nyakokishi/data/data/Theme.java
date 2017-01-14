@@ -1,11 +1,11 @@
-package com.nyakokishi.zhihu.entity;
+package com.nyakokishi.data.data;
 
 import java.util.List;
 
 /**
  * Created by Droidroid on 2016/3/24.
  */
-public class NewsTheme {
+public class Theme {
     /*{
     "stories": [
         {
@@ -38,17 +38,17 @@ public class NewsTheme {
     ],
     "image_source": ""
 }*/
-    private List<Summary> stories;
+    private List<Story> stories;
     private String description;
     private String background;
     private String image;
     private String name;
 
-    public List<Summary> getStories() {
+    public List<Story> getStories() {
         return stories;
     }
 
-    public void setStories(List<Summary> stories) {
+    public void setStories(List<Story> stories) {
         this.stories = stories;
     }
 

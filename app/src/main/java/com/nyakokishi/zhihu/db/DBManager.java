@@ -6,7 +6,6 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.nyakokishi.zhihu.constant.Constant;
-import com.nyakokishi.zhihu.entity.Detail;
 
 /**
  * Created by Droidroid on 2016/3/22.

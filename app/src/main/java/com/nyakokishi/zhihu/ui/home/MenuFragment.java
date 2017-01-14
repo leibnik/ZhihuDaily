@@ -19,6 +19,8 @@ import android.widget.TextView;
 import com.alibaba.fastjson.JSON;
 import com.bumptech.glide.Glide;
 import com.loopj.android.http.TextHttpResponseHandler;
+import com.nyakokishi.data.data.Themes;
+import com.nyakokishi.data.data.User;
 import com.nyakokishi.zhihu.ui.MainActivity;
 import com.nyakokishi.zhihu.ui.theme.StoriesFragment;
 import com.victor.loading.rotate.RotateLoading;
@@ -32,12 +34,11 @@ import java.util.List;
 
 import butterknife.Bind;
 import cn.bmob.v3.BmobUser;
-import com.nyakokishi.zhihu.entity.User;
+
 import com.nyakokishi.zhihu.manager.LoginManager;
 import com.nyakokishi.zhihu.manager.UpdateInfoManager;
 import com.nyakokishi.zhihu.task.TaskBlurBackground;
 import com.nyakokishi.zhihu.ui.login.LoginActivity;
-import com.nyakokishi.zhihu.entity.Themes;
 import com.nyakokishi.zhihu.R;
 import com.nyakokishi.zhihu.ui.ZhihuApplication;
 import com.nyakokishi.zhihu.base.BaseFragment;
@@ -45,7 +46,7 @@ import com.nyakokishi.zhihu.constant.Constant;
 import com.nyakokishi.zhihu.ui.profile.ProfileActivity;
 import com.nyakokishi.zhihu.util.HttpUtil;
 import com.nyakokishi.zhihu.util.PreferenceUtil;
-import com.nyakokishi.zhihu.view.DividerItemDecoration;
+import com.nyakokishi.zhihu.widget.DividerItemDecoration;
 
 /**
  * Created by Droidroid on 2016/3/22.

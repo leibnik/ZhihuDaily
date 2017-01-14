@@ -1,4 +1,4 @@
-package com.nyakokishi.zhihu.view;
+package com.nyakokishi.zhihu.widget;
 
 import android.content.Context;
 import android.os.Handler;
@@ -23,11 +23,11 @@ import com.bumptech.glide.Glide;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.nyakokishi.data.data.Daily;
 import com.nyakokishi.zhihu.R;
-import com.nyakokishi.zhihu.entity.NewsADay;
 
 public class BannerView extends FrameLayout implements OnClickListener {
-    private List<NewsADay.TopStories> topStories;
+    private List<Daily.TopStories> topStories;
     private List<View> views;
     private Context context;
     private ViewPager vp;
@@ -79,7 +79,7 @@ public class BannerView extends FrameLayout implements OnClickListener {
         this(context, null);
     }
 
-    public void setData(List<NewsADay.TopStories> topStories) {
+    public void setData(List<Daily.TopStories> topStories) {
         this.topStories = topStories;
         reset();
     }
@@ -227,13 +227,13 @@ public class BannerView extends FrameLayout implements OnClickListener {
     }
 
     public interface OnItemClickListener {
-        public void click(View v, NewsADay.TopStories entity);
+        public void click(View v, Daily.TopStories entity);
     }
 
     @Override
     public void onClick(View v) {
         if (mItemClickListener != null) {
-            NewsADay.TopStories entity = topStories.get(vp.getCurrentItem() - 1);
+            Daily.TopStories entity = topStories.get(vp.getCurrentItem() - 1);
             mItemClickListener.click(v, entity);
         }
     }

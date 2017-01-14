@@ -1,11 +1,10 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
 
 android {
     compileSdkVersion(COMPILE_SDK_VERSION.toInteger())
     buildToolsVersion(BUILD_TOOLS_VERSION)
 
     defaultConfig {
-        applicationId "com.nyakokishi.data"
         minSdkVersion 16
         targetSdkVersion 25
         versionCode 1

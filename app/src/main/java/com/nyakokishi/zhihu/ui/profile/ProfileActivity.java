@@ -37,12 +37,13 @@ import cn.bmob.v3.datatype.BmobFile;
 import cn.bmob.v3.listener.FindListener;
 import cn.bmob.v3.listener.UpdateListener;
 import cn.bmob.v3.listener.UploadFileListener;
+
+import com.nyakokishi.data.data.Story;
+import com.nyakokishi.data.data.User;
 import com.nyakokishi.zhihu.R;
 import com.nyakokishi.zhihu.ui.ZhihuApplication;
 import com.nyakokishi.zhihu.base.BaseActivity;
 import com.nyakokishi.zhihu.constant.Constant;
-import com.nyakokishi.zhihu.entity.Summary;
-import com.nyakokishi.zhihu.entity.User;
 import com.nyakokishi.zhihu.manager.LoginManager;
 import com.nyakokishi.zhihu.manager.UpdateInfoManager;
 import com.nyakokishi.zhihu.task.TaskBlurBackground;
@@ -178,19 +179,19 @@ public class ProfileActivity extends BaseActivity {
     }
 
     private void loadMoreData() {
-        BmobQuery<Summary> query = new BmobQuery<>();
+        BmobQuery<Story> query = new BmobQuery<>();
         query.setLimit(pagesize);
         query.setSkip(pageindex * pagesize);
         query.order("-createdAt");
         query.addWhereEqualTo("user", ZhihuApplication.user.getObjectId());
-        query.findObjects(getApplicationContext(), new FindListener<Summary>() {
+        query.findObjects(getApplicationContext(), new FindListener<Story>() {
             @Override
-            public void onSuccess(List<Summary> list) {
+            public void onSuccess(List<Story> list) {
                 if (list != null && list.size() > 0) {
                     // 数据去重
-                    LinkedHashSet<Summary> set = new LinkedHashSet<>(list);
-                    List<Summary> summaryList = new ArrayList<>(set);
-                    mAdapter.addData(summaryList);
+                    LinkedHashSet<Story> set = new LinkedHashSet<>(list);
+                    List<Story> storyList = new ArrayList<>(set);
+                    mAdapter.addData(storyList);
                     pageindex++;
                     isLoading = false;
                     if (list.size() < pagesize) {
@@ -216,7 +217,7 @@ public class ProfileActivity extends BaseActivity {
         mAdapter = new StarStoriesAdapter(ProfileActivity.this);
         mAdapter.setOnItemClickListener(new StarStoriesAdapter.OnItemClickListener() {
             @Override
-            public void OnItemClick(View v, Summary data) {
+            public void OnItemClick(View v, Story data) {
                 Intent intent = null;
                 int[] location = new int[2];
                 v.getLocationOnScreen(location);
@@ -234,19 +235,19 @@ public class ProfileActivity extends BaseActivity {
             }
         });
         mRecyclerView.setAdapter(mAdapter);
-        BmobQuery<Summary> query = new BmobQuery<>();
+        BmobQuery<Story> query = new BmobQuery<>();
         query.setLimit(pagesize);
         query.setSkip(pageindex * pagesize);
         query.order("-createdAt");
         query.addWhereEqualTo("user", ZhihuApplication.user.getObjectId());
-        query.findObjects(getApplicationContext(), new FindListener<Summary>() {
+        query.findObjects(getApplicationContext(), new FindListener<Story>() {
             @Override
-            public void onSuccess(List<Summary> list) {
+            public void onSuccess(List<Story> list) {
                 if (list != null && list.size() > 0) {
                     // 数据去重
-                    LinkedHashSet<Summary> set = new LinkedHashSet<>(list);
-                    List<Summary> summaryList = new ArrayList<>(set);
-                    mAdapter.setData(summaryList);
+                    LinkedHashSet<Story> set = new LinkedHashSet<>(list);
+                    List<Story> storyList = new ArrayList<>(set);
+                    mAdapter.setData(storyList);
                     pageindex++;
                     if (list.size() < pagesize) {
                         mAdapter.setIsFooterGone(true);

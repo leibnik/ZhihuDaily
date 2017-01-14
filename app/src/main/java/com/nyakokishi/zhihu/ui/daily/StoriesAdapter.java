@@ -14,20 +14,20 @@ import com.bumptech.glide.Glide;
 
 import java.util.List;
 
+import com.nyakokishi.data.data.Story;
+import com.nyakokishi.data.data.Daily;
 import com.nyakokishi.zhihu.R;
 import com.nyakokishi.zhihu.constant.Constant;
-import com.nyakokishi.zhihu.entity.NewsADay;
-import com.nyakokishi.zhihu.entity.Summary;
 import com.nyakokishi.zhihu.ui.daily.detail.StoryDetailActivity;
-import com.nyakokishi.zhihu.view.BannerView;
+import com.nyakokishi.zhihu.widget.BannerView;
 
 /**
  * Created by Droidroid on 2016/3/22.
  */
 public class StoriesAdapter extends RecyclerView.Adapter<StoriesAdapter.ViewHolder> {
 
-    private List<Summary> data;
-    private List<NewsADay.TopStories> topStories;
+    private List<Story> data;
+    private List<Daily.TopStories> topStories;
     private Context mContext;
     private static final int IS_HEADER = 0;
     private static final int IS_NORMAL = 1;
@@ -41,14 +41,14 @@ public class StoriesAdapter extends RecyclerView.Adapter<StoriesAdapter.ViewHold
         notifyDataSetChanged();
     }
 
-    public StoriesAdapter(Context context, NewsADay newsADay, boolean isColorTheme) {
+    public StoriesAdapter(Context context, Daily newsADay, boolean isColorTheme) {
         mContext = context;
-        this.topStories = newsADay.getTop_stories();
+        this.topStories = newsADay.getTopStories();
         this.data = newsADay.getStories();
         this.isColorTheme = isColorTheme;
     }
 
-    public void loadMore(NewsADay newsADay) {
+    public void loadMore(Daily newsADay) {
         data.addAll(newsADay.getStories());
         notifyDataSetChanged();
     }
@@ -137,15 +137,15 @@ public class StoriesAdapter extends RecyclerView.Adapter<StoriesAdapter.ViewHold
             holder.bannerView.startPlay();
             holder.bannerView.setOnItemClickListener(new BannerView.OnItemClickListener() {
                 @Override
-                public void click(View v, NewsADay.TopStories entity) {
+                public void click(View v, Daily.TopStories entity) {
                     int[] location = new int[2];
                     v.getLocationOnScreen(location);
                     location[0] += v.getWidth() / 2;
                     Intent intent = new Intent(mContext, StoryDetailActivity.class);
-                    Summary summary = new Summary();
-                    summary.setId(entity.getId());
-                    summary.setTitle(entity.getTitle());
-                    intent.putExtra("summary", summary);
+                    Story story = new Story();
+                    story.setId(entity.getId());
+                    story.setTitle(entity.getTitle());
+                    intent.putExtra("story", story);
                     intent.putExtra("location", location);
                     mContext.startActivity(intent);
                 }
@@ -172,12 +172,12 @@ public class StoriesAdapter extends RecyclerView.Adapter<StoriesAdapter.ViewHold
         }
     }
 
-    public Summary getSingleData(int position) {
+    public Story getSingleData(int position) {
         return data.get(position - 1);
     }
 
     public interface OnItemClickListener {
-        void onItemClick(View view, Summary data);
+        void onItemClick(View view, Story data);
     }
 
     public void setOnItemClickListener(OnItemClickListener listener) {

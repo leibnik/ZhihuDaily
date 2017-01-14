@@ -1,4 +1,4 @@
-package com.nyakokishi.zhihu.entity;
+package com.nyakokishi.data.data;
 
 /**
  * Created by Droidroid on 2016/3/22.

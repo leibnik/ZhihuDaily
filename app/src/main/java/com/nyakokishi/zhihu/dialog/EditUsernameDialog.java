@@ -10,10 +10,11 @@ import android.widget.EditText;
 import butterknife.Bind;
 import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.listener.UpdateListener;
+
+import com.nyakokishi.data.data.User;
 import com.nyakokishi.zhihu.R;
 import com.nyakokishi.zhihu.ui.ZhihuApplication;
 import com.nyakokishi.zhihu.base.BaseActivity;
-import com.nyakokishi.zhihu.entity.User;
 
 /**
  * Created by Droidroid on 2016/3/30.

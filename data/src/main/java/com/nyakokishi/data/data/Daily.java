@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * Created by Droidroid on 2016/3/22.
  */
-public class Today {
+public class Daily {
     /*{
     "date": "20160323",
     "stories": [
@@ -30,10 +30,10 @@ public class Today {
     ]
 }*/
     private String date;
-    private List<Stories> stories;
+    private List<Story> stories;
     private List<TopStories> top_stories;
 
-    public List<TopStories> getTop_stories() {
+    public List<TopStories> getTopStories() {
         return top_stories;
     }
 
@@ -49,11 +49,11 @@ public class Today {
         this.date = date;
     }
 
-    public List<Stories> getStories() {
+    public List<Story> getStories() {
         return stories;
     }
 
-    public void setStories(List<Stories> stories) {
+    public void setStories(List<Story> stories) {
         this.stories = stories;
     }
 
