@@ -32,7 +32,7 @@ import com.nyakokishi.zhihu.util.DateUtil;
 import com.nyakokishi.zhihu.util.HttpUtil;
 
 /**
- * Created by Droidroid on 2016/3/22.
+ * Created by nyakokishi on 2016/3/22.
  */
 public class StoriesFragment extends BaseFragment implements Contract.View {
 

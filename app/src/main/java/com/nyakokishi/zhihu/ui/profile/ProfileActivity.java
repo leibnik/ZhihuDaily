@@ -54,7 +54,7 @@ import com.nyakokishi.zhihu.util.BitmapUtil;
 import com.nyakokishi.zhihu.util.PreferenceUtil;
 
 /**
- * Created by Droidroid on 2016/3/30.
+ * Created by nyakokishi on 2016/3/30.
  */
 public class ProfileActivity extends BaseActivity {
     @Bind(R.id.toolbar)

@@ -3,7 +3,7 @@ package com.nyakokishi.data.data;
 import java.util.List;
 
 /**
- * Created by Droidroid on 2016/3/22.
+ * Created by nyakokishi on 2016/3/22.
  */
 public class Daily {
     /*{

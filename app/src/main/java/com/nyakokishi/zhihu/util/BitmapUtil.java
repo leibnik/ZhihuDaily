@@ -6,7 +6,7 @@ import android.graphics.PixelFormat;
 import android.graphics.drawable.Drawable;
 
 /**
- * Created by Droidroid on 2016/3/31.
+ * Created by nyakokishi on 2016/3/31.
  */
 public class BitmapUtil {
     public static Bitmap drawableToBitmap(Drawable drawable) {

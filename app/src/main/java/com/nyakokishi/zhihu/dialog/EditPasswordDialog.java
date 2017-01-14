@@ -15,7 +15,7 @@ import com.nyakokishi.zhihu.util.MD5Util;
 import com.nyakokishi.zhihu.util.PreferenceUtil;
 
 /**
- * Created by Droidroid on 2016/3/31.
+ * Created by nyakokishi on 2016/3/31.
  */
 public class EditPasswordDialog extends BaseActivity {
 

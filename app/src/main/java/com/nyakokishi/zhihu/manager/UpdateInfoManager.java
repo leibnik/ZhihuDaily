@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Droidroid on 2016/3/31.
+ * Created by nyakokishi on 2016/3/31.
  */
 public class UpdateInfoManager {
     public static List<OnUpdateInfoListener> listeners = new ArrayList<>();

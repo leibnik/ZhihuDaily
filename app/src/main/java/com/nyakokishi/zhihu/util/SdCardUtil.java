@@ -6,7 +6,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 /**
- * Created by Droidroid on 2016/3/22.
+ * Created by nyakokishi on 2016/3/22.
  */
 public class SdCardUtil {
     public static void save(File file, byte[] bytes){

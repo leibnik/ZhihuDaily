@@ -17,7 +17,7 @@ import com.nyakokishi.zhihu.ui.ZhihuApplication;
 import com.nyakokishi.zhihu.base.BaseActivity;
 
 /**
- * Created by Droidroid on 2016/3/30.
+ * Created by nyakokishi on 2016/3/30.
  */
 public class EditUsernameDialog extends BaseActivity{
     @Bind(R.id.username_et)

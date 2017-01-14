@@ -14,7 +14,7 @@ import com.nyakokishi.data.data.Themes;
 import com.nyakokishi.zhihu.R;
 
 /**
- * Created by Droidroid on 2016/3/22.
+ * Created by nyakokishi on 2016/3/22.
  */
 public class HomeMenuAdapter extends RecyclerView.Adapter<HomeMenuAdapter.ViewHolder> {
 

@@ -34,7 +34,7 @@ import com.nyakokishi.zhihu.util.HttpUtil;
 import com.nyakokishi.zhihu.widget.RevealBackgroundView;
 
 /**
- * Created by Droidroid on 2016/3/25.
+ * Created by nyakokishi on 2016/3/25.
  */
 public class StoryDetailActivity extends BaseActivity implements RevealBackgroundView.OnStateChangeListener {
 

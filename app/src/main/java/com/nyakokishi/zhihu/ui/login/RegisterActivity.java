@@ -27,7 +27,7 @@ import com.nyakokishi.zhihu.util.MD5Util;
 import com.nyakokishi.zhihu.util.PreferenceUtil;
 
 /**
- * Created by Droidroid on 2016/3/29.
+ * Created by nyakokishi on 2016/3/29.
  */
 public class RegisterActivity extends BaseActivity {
 

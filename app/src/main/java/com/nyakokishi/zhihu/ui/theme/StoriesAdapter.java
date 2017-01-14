@@ -18,7 +18,7 @@ import com.nyakokishi.data.data.Theme;
 import com.nyakokishi.zhihu.R;
 
 /**
- * Created by Droidroid on 2016/3/24.
+ * Created by nyakokishi on 2016/3/24.
  */
 public class StoriesAdapter extends RecyclerView.Adapter<StoriesAdapter.ViewHolder> {
 

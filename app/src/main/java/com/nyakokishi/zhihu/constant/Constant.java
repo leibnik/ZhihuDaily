@@ -1,7 +1,7 @@
 package com.nyakokishi.zhihu.constant;
 
 /**
- * Created by Droidroid on 2016/3/22.
+ * Created by nyakokishi on 2016/3/22.
  */
 public interface Constant {
     String BASEURL = "http://news-at.zhihu.com/api/4/";

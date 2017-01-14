@@ -11,7 +11,7 @@ import com.nyakokishi.zhihu.util.BitmapUtil;
 import com.nyakokishi.zhihu.util.DisplayUtil;
 
 /**
- * Created by Droidroid on 2016/3/31.
+ * Created by nyakokishi on 2016/3/31.
  */
 public class TaskBlurBackground extends AsyncTask<Void, Integer, Bitmap> {
 

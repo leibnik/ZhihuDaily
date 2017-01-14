@@ -22,7 +22,7 @@ import com.nyakokishi.zhihu.ui.daily.detail.StoryDetailActivity;
 import com.nyakokishi.zhihu.widget.BannerView;
 
 /**
- * Created by Droidroid on 2016/3/22.
+ * Created by nyakokishi on 2016/3/22.
  */
 public class StoriesAdapter extends RecyclerView.Adapter<StoriesAdapter.ViewHolder> {
 

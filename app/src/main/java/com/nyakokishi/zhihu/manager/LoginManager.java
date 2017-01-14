@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Droidroid on 2016/3/30.
+ * Created by nyakokishi on 2016/3/30.
  */
 public class LoginManager {
     public interface OnLoginListener {

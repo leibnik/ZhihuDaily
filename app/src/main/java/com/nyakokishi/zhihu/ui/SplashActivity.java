@@ -15,7 +15,7 @@ import com.nyakokishi.zhihu.base.BaseActivity;
 import com.nyakokishi.zhihu.ui.MainActivity;
 
 /**
- * Created by Droidroid on 2016/3/22.
+ * Created by nyakokishi on 2016/3/22.
  */
 public class SplashActivity extends BaseActivity {
 

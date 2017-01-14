@@ -49,7 +49,7 @@ import com.nyakokishi.zhihu.util.PreferenceUtil;
 import com.nyakokishi.zhihu.widget.DividerItemDecoration;
 
 /**
- * Created by Droidroid on 2016/3/22.
+ * Created by nyakokishi on 2016/3/22.
  */
 public class MenuFragment extends BaseFragment {
 

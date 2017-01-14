@@ -17,7 +17,7 @@ import com.nyakokishi.data.data.Story;
 import com.nyakokishi.zhihu.R;
 
 /**
- * Created by Droidroid on 2016/3/30.
+ * Created by nyakokishi on 2016/3/30.
  */
 public class StarStoriesAdapter extends RecyclerView.Adapter<StarStoriesAdapter.ViewHolder> {
     private Context mContext;

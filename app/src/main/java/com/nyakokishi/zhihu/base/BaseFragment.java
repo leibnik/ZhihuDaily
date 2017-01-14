@@ -14,7 +14,7 @@ import butterknife.ButterKnife;
 import com.nyakokishi.zhihu.db.DBManager;
 
 /**
- * Created by Droidroid on 2016/3/22.
+ * Created by nyakokishi on 2016/3/22.
  */
 public abstract class BaseFragment extends Fragment {
     protected Activity mActivity;

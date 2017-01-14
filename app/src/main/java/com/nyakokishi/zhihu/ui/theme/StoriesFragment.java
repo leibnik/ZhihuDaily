@@ -28,7 +28,7 @@ import com.nyakokishi.zhihu.ui.MainActivity;
 import com.nyakokishi.zhihu.util.HttpUtil;
 
 /**
- * Created by Droidroid on 2016/3/23.
+ * Created by nyakokishi on 2016/3/23.
  */
 public class StoriesFragment extends BaseFragment {
 

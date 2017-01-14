@@ -10,7 +10,7 @@ import com.loopj.android.http.RequestParams;
 import com.loopj.android.http.TextHttpResponseHandler;
 
 /**
- * Created by Droidroid on 2016/3/22.
+ * Created by nyakokishi on 2016/3/22.
  */
 public class HttpUtil {
     private static AsyncHttpClient httpClient = new AsyncHttpClient();

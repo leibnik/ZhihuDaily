@@ -4,7 +4,7 @@ import android.content.Context;
 import android.util.DisplayMetrics;
 
 /**
- * Created by Droidroid on 2016/3/31.
+ * Created by nyakokishi on 2016/3/31.
  */
 public class DisplayUtil {
     public static int px2dip(Context context, float pxValue){

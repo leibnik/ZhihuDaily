@@ -1,7 +1,7 @@
 package com.nyakokishi.zhihu.widget;
 
 /**
- * Created by Droidroid on 2016/3/22.
+ * Created by nyakokishi on 2016/3/22.
  */
 
 import android.content.Context;

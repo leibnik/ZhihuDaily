@@ -5,7 +5,7 @@ import java.util.List;
 import cn.bmob.v3.BmobObject;
 
 /**
- * Created by Droidroid on 2016/3/22.
+ * Created by nyakokishi on 2016/3/22.
  */
 public class Story extends BmobObject{
     /*"stories": [
