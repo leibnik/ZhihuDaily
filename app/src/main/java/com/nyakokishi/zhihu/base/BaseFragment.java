@@ -20,7 +20,7 @@ public abstract class BaseFragment extends Fragment {
     protected Activity mActivity;
     protected DBManager mDBManger;
     protected boolean isColorTheme = true;
-    protected boolean isFirstLoad = true;
+    protected boolean isRefreshing = true;
 
     @Nullable
     @Override

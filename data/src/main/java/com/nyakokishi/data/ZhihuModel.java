@@ -28,7 +28,7 @@ public class ZhihuModel {
      * @param id
      * @return
      */
-    public static Observable<Theme> getSubjectById(String id) {
+    public static Observable<Theme> getSubjectById(int id) {
         return HttpService.getInstance().api.getSubjectById(id);
     }
 
@@ -37,8 +37,8 @@ public class ZhihuModel {
      *
      * @return
      */
-    public static Observable<Daily> getTodayStories() {
-        return HttpService.getInstance().api.getTodayStroies();
+    public static Observable<Daily> getTodayDaily() {
+        return HttpService.getInstance().api.getLatestDaily();
     }
 
 
@@ -47,8 +47,8 @@ public class ZhihuModel {
      * @param date
      * @return
      */
-    public static Observable<Daily> getOlderStories(String date) {
-        return HttpService.getInstance().api.getOldStroies(date);
+    public static Observable<Daily> getBeforeDaily(String date) {
+        return HttpService.getInstance().api.getBeforeDaily(date);
     }
 
     /**
@@ -57,7 +57,7 @@ public class ZhihuModel {
      * @param id
      * @return
      */
-    public static Observable<StoryDetail> getStoryDetail(String id) {
+    public static Observable<StoryDetail> getStoryDetail(int id) {
         return HttpService.getInstance().api.getStroyDetail(id);
     }
 

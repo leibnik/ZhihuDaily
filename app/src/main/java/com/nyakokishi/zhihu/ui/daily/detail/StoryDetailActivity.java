@@ -2,6 +2,7 @@ package com.nyakokishi.zhihu.ui.daily.detail;
 
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
 import android.support.v7.widget.Toolbar;
@@ -23,7 +24,6 @@ import com.bumptech.glide.request.target.Target;
 import com.loopj.android.http.TextHttpResponseHandler;
 
 
-import net.opacapp.multilinecollapsingtoolbar.CollapsingToolbarLayout;
 
 import org.apache.http.Header;
 

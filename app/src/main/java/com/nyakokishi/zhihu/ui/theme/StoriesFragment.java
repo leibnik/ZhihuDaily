@@ -21,6 +21,7 @@ import com.victor.loading.rotate.RotateLoading;
 import org.apache.http.Header;
 
 import butterknife.Bind;
+
 import com.nyakokishi.zhihu.R;
 import com.nyakokishi.zhihu.base.BaseFragment;
 import com.nyakokishi.zhihu.constant.Constant;
@@ -30,7 +31,7 @@ import com.nyakokishi.zhihu.util.HttpUtil;
 /**
  * Created by nyakokishi on 2016/3/23.
  */
-public class StoriesFragment extends BaseFragment {
+public class StoriesFragment extends BaseFragment implements Contract.View {
 
     @Bind(R.id.news_lv)
     RecyclerView mRecyclerView;
@@ -40,6 +41,7 @@ public class StoriesFragment extends BaseFragment {
     public static final String TAG = "StoriesFragment";
     private int id;
     private StoriesAdapter mAdapter;
+    private StoriesPresenter presenter = new StoriesPresenter(this);
 
     @Override
     public void initVariables() {
@@ -74,45 +76,13 @@ public class StoriesFragment extends BaseFragment {
     @Override
     public void loadData() {
         super.loadData();
-        if (HttpUtil.isNetworkAvailable(mActivity.getApplicationContext())) {
-            HttpUtil.get(Constant.THEMENEWS + id, new TextHttpResponseHandler() {
-                @Override
-                public void onStart() {
-                    if (isFirstLoad) {
-                        mRotateLoading.start();
-                        isFirstLoad = false;
-                    }
-                }
-
-                @Override
-                public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
-                    if (mRotateLoading.isStart()) {
-                        mRotateLoading.stop();
-                    }
-                }
-
-                @Override
-                public void onSuccess(int statusCode, Header[] headers, String responseString) {
-                    if (mRotateLoading.isStart()) {
-                        mRotateLoading.stop();
-                    }
-                    parseResult(responseString);
-                    mDBManger.saveThemeSummary(responseString, id);
-                }
-            });
-        } else {
-            parseResult(mDBManger.getThemeSummary(id));
-        }
+        mRotateLoading.start();
+        presenter.getThemeStories(id);
     }
 
-    private void parseResult(String responseString) {
-        if (TextUtils.isEmpty(responseString)) {
-            mRecyclerView.setAdapter(new StoriesAdapter(mActivity, new Theme()));
-            ((MainActivity) mActivity).showSnackBar("网络无连接");
-            return;
-        }
-        Theme newsTheme = JSON.parseObject(responseString, Theme.class);
-        mAdapter = new StoriesAdapter(mActivity, newsTheme);
+    @Override
+    public void onFillTheme(Theme theme) {
+        mAdapter = new StoriesAdapter(mActivity, theme);
         mAdapter.setOnItemClickListener(new StoriesAdapter.OnItemClickListener() {
             @Override
             public void OnItemClick(View v, Story data) {
@@ -126,7 +96,7 @@ public class StoriesFragment extends BaseFragment {
             }
         });
         mRecyclerView.setAdapter(mAdapter);
+        isRefreshing = false;
+        mRotateLoading.stop();
     }
-
-
 }

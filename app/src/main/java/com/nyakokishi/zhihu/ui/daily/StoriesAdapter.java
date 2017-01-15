@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.nyakokishi.data.data.Story;
@@ -26,8 +27,8 @@ import com.nyakokishi.zhihu.widget.BannerView;
  */
 public class StoriesAdapter extends RecyclerView.Adapter<StoriesAdapter.ViewHolder> {
 
-    private List<Story> data;
-    private List<Daily.TopStories> topStories;
+    private List<Story> data = new ArrayList<>();
+    private List<Daily.TopStory> topStories = new ArrayList<>();
     private Context mContext;
     private static final int IS_HEADER = 0;
     private static final int IS_NORMAL = 1;
@@ -41,15 +42,19 @@ public class StoriesAdapter extends RecyclerView.Adapter<StoriesAdapter.ViewHold
         notifyDataSetChanged();
     }
 
-    public StoriesAdapter(Context context, Daily newsADay, boolean isColorTheme) {
+    public StoriesAdapter(Context context, boolean isColorTheme) {
         mContext = context;
-        this.topStories = newsADay.getTopStories();
-        this.data = newsADay.getStories();
         this.isColorTheme = isColorTheme;
     }
 
-    public void loadMore(Daily newsADay) {
-        data.addAll(newsADay.getStories());
+    public void loadMore(Daily daily) {
+        data.addAll(daily.getStories());
+        notifyDataSetChanged();
+    }
+
+    public void refreshData(Daily daily) {
+        topStories.addAll(daily.getTopStories());
+        data.addAll(daily.getStories());
         notifyDataSetChanged();
     }
 
@@ -64,7 +69,7 @@ public class StoriesAdapter extends RecyclerView.Adapter<StoriesAdapter.ViewHold
             super(itemView);
             if (viewType == IS_HEADER) {
                 bannerView = (BannerView) itemView.findViewById(R.id.banner);
-                if (topStories != null && topStories.size() > 0){
+                if (topStories != null && topStories.size() > 0) {
                     bannerView.setData(topStories);
                 }
             }
@@ -137,7 +142,7 @@ public class StoriesAdapter extends RecyclerView.Adapter<StoriesAdapter.ViewHold
             holder.bannerView.startPlay();
             holder.bannerView.setOnItemClickListener(new BannerView.OnItemClickListener() {
                 @Override
-                public void click(View v, Daily.TopStories entity) {
+                public void click(View v, Daily.TopStory entity) {
                     int[] location = new int[2];
                     v.getLocationOnScreen(location);
                     location[0] += v.getWidth() / 2;
@@ -155,14 +160,17 @@ public class StoriesAdapter extends RecyclerView.Adapter<StoriesAdapter.ViewHold
 
     @Override
     public int getItemCount() {
-        if (data != null) {
+        if (data.size() != 0 && topStories.size() != 0) {
             return data.size() + 2;
         }
-        return 2;
+        return 1;
     }
 
     @Override
     public int getItemViewType(int position) {
+        if (data.size() == 0 && topStories.size() == 0) {
+            return IS_FOOTER;
+        }
         if (position == 0) {
             return IS_HEADER;
         } else if (position == getItemCount() - 1) {
@@ -170,10 +178,7 @@ public class StoriesAdapter extends RecyclerView.Adapter<StoriesAdapter.ViewHold
         } else {
             return IS_NORMAL;
         }
-    }
 
-    public Story getSingleData(int position) {
-        return data.get(position - 1);
     }
 
     public interface OnItemClickListener {

@@ -27,7 +27,7 @@ import com.nyakokishi.data.data.Daily;
 import com.nyakokishi.zhihu.R;
 
 public class BannerView extends FrameLayout implements OnClickListener {
-    private List<Daily.TopStories> topStories;
+    private List<Daily.TopStory> topStories;
     private List<View> views;
     private Context context;
     private ViewPager vp;
@@ -79,7 +79,7 @@ public class BannerView extends FrameLayout implements OnClickListener {
         this(context, null);
     }
 
-    public void setData(List<Daily.TopStories> topStories) {
+    public void setData(List<Daily.TopStory> topStories) {
         this.topStories = topStories;
         reset();
     }
@@ -227,13 +227,13 @@ public class BannerView extends FrameLayout implements OnClickListener {
     }
 
     public interface OnItemClickListener {
-        public void click(View v, Daily.TopStories entity);
+        public void click(View v, Daily.TopStory entity);
     }
 
     @Override
     public void onClick(View v) {
         if (mItemClickListener != null) {
-            Daily.TopStories entity = topStories.get(vp.getCurrentItem() - 1);
+            Daily.TopStory entity = topStories.get(vp.getCurrentItem() - 1);
             mItemClickListener.click(v, entity);
         }
     }

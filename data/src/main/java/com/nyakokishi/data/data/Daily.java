@@ -31,13 +31,13 @@ public class Daily {
 }*/
     private String date;
     private List<Story> stories;
-    private List<TopStories> top_stories;
+    private List<TopStory> top_stories;
 
-    public List<TopStories> getTopStories() {
+    public List<TopStory> getTopStories() {
         return top_stories;
     }
 
-    public void setTop_stories(List<TopStories> top_stories) {
+    public void setTop_stories(List<TopStory> top_stories) {
         this.top_stories = top_stories;
     }
 
@@ -58,7 +58,7 @@ public class Daily {
     }
 
 
-    public static class TopStories {
+    public static class TopStory {
         private String title;
         private String image;
         private int type;

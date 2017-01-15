@@ -18,14 +18,14 @@ public interface ZhihuApi {
     Observable<Themes> getSubjects();
 
     @GET("news/latest")
-    Observable<Daily> getTodayStroies();
+    Observable<Daily> getLatestDaily();
 
     @GET("news/before/{date}")
-    Observable<Daily> getOldStroies(@Path("date") String date);
+    Observable<Daily> getBeforeDaily(@Path("date") String date);
 
     @GET("theme/{id}")
-    Observable<Theme> getSubjectById(@Path("id") String id);
+    Observable<Theme> getSubjectById(@Path("id") int id);
 
     @GET("news/{id}")
-    Observable<StoryDetail> getStroyDetail(@Path("id") String id);
+    Observable<StoryDetail> getStroyDetail(@Path("id") int id);
 }
