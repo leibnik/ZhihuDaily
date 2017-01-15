@@ -30,7 +30,6 @@ dependencies {
 
     // art work
     compile 'io.reactivex:rxandroid:1.2.1'
-    compile 'com.loopj.android:android-async-http:1.4.8'
     compile 'com.github.bumptech.glide:glide:3.7.0'
     compile 'com.jakewharton:butterknife:7.0.1'
     compile files('libs/fastjson-1.2.8.jar')

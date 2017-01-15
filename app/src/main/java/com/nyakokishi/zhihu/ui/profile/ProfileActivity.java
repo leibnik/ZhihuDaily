@@ -38,7 +38,7 @@ import cn.bmob.v3.listener.FindListener;
 import cn.bmob.v3.listener.UpdateListener;
 import cn.bmob.v3.listener.UploadFileListener;
 
-import com.nyakokishi.data.data.Story;
+import com.nyakokishi.data.data.DailyStory;
 import com.nyakokishi.data.data.User;
 import com.nyakokishi.zhihu.R;
 import com.nyakokishi.zhihu.ui.ZhihuApplication;
@@ -47,7 +47,7 @@ import com.nyakokishi.zhihu.constant.Constant;
 import com.nyakokishi.zhihu.manager.LoginManager;
 import com.nyakokishi.zhihu.manager.UpdateInfoManager;
 import com.nyakokishi.zhihu.task.TaskBlurBackground;
-import com.nyakokishi.zhihu.ui.theme.detail.StoryDetailActivity;
+import com.nyakokishi.zhihu.ui.theme.detail.DetailActivity;
 import com.nyakokishi.zhihu.dialog.EditPasswordDialog;
 import com.nyakokishi.zhihu.dialog.EditUsernameDialog;
 import com.nyakokishi.zhihu.util.BitmapUtil;
@@ -179,19 +179,19 @@ public class ProfileActivity extends BaseActivity {
     }
 
     private void loadMoreData() {
-        BmobQuery<Story> query = new BmobQuery<>();
+        BmobQuery<DailyStory> query = new BmobQuery<>();
         query.setLimit(pagesize);
         query.setSkip(pageindex * pagesize);
         query.order("-createdAt");
         query.addWhereEqualTo("user", ZhihuApplication.user.getObjectId());
-        query.findObjects(getApplicationContext(), new FindListener<Story>() {
+        query.findObjects(getApplicationContext(), new FindListener<DailyStory>() {
             @Override
-            public void onSuccess(List<Story> list) {
+            public void onSuccess(List<DailyStory> list) {
                 if (list != null && list.size() > 0) {
                     // 数据去重
-                    LinkedHashSet<Story> set = new LinkedHashSet<>(list);
-                    List<Story> storyList = new ArrayList<>(set);
-                    mAdapter.addData(storyList);
+                    LinkedHashSet<DailyStory> set = new LinkedHashSet<>(list);
+                    List<DailyStory> dailyStoryList = new ArrayList<>(set);
+                    mAdapter.addData(dailyStoryList);
                     pageindex++;
                     isLoading = false;
                     if (list.size() < pagesize) {
@@ -217,15 +217,15 @@ public class ProfileActivity extends BaseActivity {
         mAdapter = new StarStoriesAdapter(ProfileActivity.this);
         mAdapter.setOnItemClickListener(new StarStoriesAdapter.OnItemClickListener() {
             @Override
-            public void OnItemClick(View v, Story data) {
+            public void OnItemClick(View v, DailyStory data) {
                 Intent intent = null;
                 int[] location = new int[2];
                 v.getLocationOnScreen(location);
                 location[0] += v.getWidth() / 2;
                 if (data.getType() == Constant.TYPE_DAY_DETAIL) {
-                    intent = new Intent(getApplicationContext(), com.nyakokishi.zhihu.ui.daily.detail.StoryDetailActivity.class);
+                    intent = new Intent(getApplicationContext(), com.nyakokishi.zhihu.ui.daily.detail.DetailActivity.class);
                 } else if (data.getType() == Constant.TYPE_THEME_DETAIL) {
-                    intent = new Intent(getApplicationContext(), StoryDetailActivity.class);
+                    intent = new Intent(getApplicationContext(), DetailActivity.class);
                 }
                 if (intent != null) {
                     intent.putExtra("summary", data);
@@ -235,19 +235,19 @@ public class ProfileActivity extends BaseActivity {
             }
         });
         mRecyclerView.setAdapter(mAdapter);
-        BmobQuery<Story> query = new BmobQuery<>();
+        BmobQuery<DailyStory> query = new BmobQuery<>();
         query.setLimit(pagesize);
         query.setSkip(pageindex * pagesize);
         query.order("-createdAt");
         query.addWhereEqualTo("user", ZhihuApplication.user.getObjectId());
-        query.findObjects(getApplicationContext(), new FindListener<Story>() {
+        query.findObjects(getApplicationContext(), new FindListener<DailyStory>() {
             @Override
-            public void onSuccess(List<Story> list) {
+            public void onSuccess(List<DailyStory> list) {
                 if (list != null && list.size() > 0) {
                     // 数据去重
-                    LinkedHashSet<Story> set = new LinkedHashSet<>(list);
-                    List<Story> storyList = new ArrayList<>(set);
-                    mAdapter.setData(storyList);
+                    LinkedHashSet<DailyStory> set = new LinkedHashSet<>(list);
+                    List<DailyStory> dailyStoryList = new ArrayList<>(set);
+                    mAdapter.setData(dailyStoryList);
                     pageindex++;
                     if (list.size() < pagesize) {
                         mAdapter.setIsFooterGone(true);

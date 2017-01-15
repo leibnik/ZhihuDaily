@@ -10,15 +10,15 @@ import android.widget.TextView;
 
 import java.util.List;
 
-import com.nyakokishi.data.data.Themes;
+import com.nyakokishi.data.data.Theme;
 import com.nyakokishi.zhihu.R;
 
 /**
  * Created by nyakokishi on 2016/3/22.
  */
-public class HomeMenuAdapter extends RecyclerView.Adapter<HomeMenuAdapter.ViewHolder> {
+public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.ViewHolder> {
 
-    private List<Themes> data;
+    private List<Theme> data;
     private OnItemClickListener onItemClickListener = null;
     private int currentThemeId;
     private Context mContext;
@@ -41,7 +41,7 @@ public class HomeMenuAdapter extends RecyclerView.Adapter<HomeMenuAdapter.ViewHo
         }
     }
 
-    public HomeMenuAdapter(Context context, List<Themes> data, int currentThemeId) {
+    public MenuAdapter(Context context, List<Theme> data, int currentThemeId) {
         this.data = data;
         this.currentThemeId = currentThemeId;
         this.mContext = context;

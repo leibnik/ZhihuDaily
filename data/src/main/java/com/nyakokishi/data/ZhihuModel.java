@@ -2,8 +2,9 @@ package com.nyakokishi.data;
 
 import com.nyakokishi.data.data.StoryDetail;
 import com.nyakokishi.data.data.Theme;
-import com.nyakokishi.data.data.Themes;
+import com.nyakokishi.data.data.ThemeStory;
 import com.nyakokishi.data.data.Daily;
+import com.nyakokishi.data.data.Themes;
 
 import rx.Observable;
 
@@ -16,10 +17,10 @@ public class ZhihuModel {
     /**
      * 获取所有主题
      *
-     * @return
+     * @returnss
      */
-    public static Observable<Themes> getSubjects() {
-        return HttpService.getInstance().api.getSubjects();
+    public static Observable<Themes> getThemes() {
+        return HttpService.getInstance().api.getThemes();
     }
 
     /**
@@ -28,8 +29,8 @@ public class ZhihuModel {
      * @param id
      * @return
      */
-    public static Observable<Theme> getSubjectById(int id) {
-        return HttpService.getInstance().api.getSubjectById(id);
+    public static Observable<ThemeStory> getThemeById(int id) {
+        return HttpService.getInstance().api.getThemeById(id);
     }
 
     /**
@@ -37,7 +38,7 @@ public class ZhihuModel {
      *
      * @return
      */
-    public static Observable<Daily> getTodayDaily() {
+    public static Observable<Daily> getLatestDaily() {
         return HttpService.getInstance().api.getLatestDaily();
     }
 
@@ -57,8 +58,8 @@ public class ZhihuModel {
      * @param id
      * @return
      */
-    public static Observable<StoryDetail> getStoryDetail(int id) {
-        return HttpService.getInstance().api.getStroyDetail(id);
+    public static Observable<StoryDetail> getStoryDetailById(int id) {
+        return HttpService.getInstance().api.getStoryDetailById(id);
     }
 
 

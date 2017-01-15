@@ -21,7 +21,7 @@ public class StoriesPresenter extends BasePresenter<Contract.View> implements Co
 
     @Override
     public void getLatestDaily() {
-        ZhihuModel.getTodayDaily()
+        ZhihuModel.getLatestDaily()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Action1<Daily>() {

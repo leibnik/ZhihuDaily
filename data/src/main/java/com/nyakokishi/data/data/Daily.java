@@ -30,7 +30,7 @@ public class Daily {
     ]
 }*/
     private String date;
-    private List<Story> stories;
+    private List<DailyStory> stories;
     private List<TopStory> top_stories;
 
     public List<TopStory> getTopStories() {
@@ -49,11 +49,11 @@ public class Daily {
         this.date = date;
     }
 
-    public List<Story> getStories() {
+    public List<DailyStory> getStories() {
         return stories;
     }
 
-    public void setStories(List<Story> stories) {
+    public void setStories(List<DailyStory> stories) {
         this.stories = stories;
     }
 

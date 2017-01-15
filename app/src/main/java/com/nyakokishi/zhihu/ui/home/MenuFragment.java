@@ -8,7 +8,6 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,21 +15,13 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.alibaba.fastjson.JSON;
 import com.bumptech.glide.Glide;
-import com.loopj.android.http.TextHttpResponseHandler;
+import com.nyakokishi.data.data.Theme;
 import com.nyakokishi.data.data.Themes;
 import com.nyakokishi.data.data.User;
 import com.nyakokishi.zhihu.ui.MainActivity;
 import com.nyakokishi.zhihu.ui.theme.StoriesFragment;
 import com.victor.loading.rotate.RotateLoading;
-
-import org.apache.http.Header;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.util.List;
 
 import butterknife.Bind;
 import cn.bmob.v3.BmobUser;
@@ -42,16 +33,14 @@ import com.nyakokishi.zhihu.ui.login.LoginActivity;
 import com.nyakokishi.zhihu.R;
 import com.nyakokishi.zhihu.ui.ZhihuApplication;
 import com.nyakokishi.zhihu.base.BaseFragment;
-import com.nyakokishi.zhihu.constant.Constant;
 import com.nyakokishi.zhihu.ui.profile.ProfileActivity;
-import com.nyakokishi.zhihu.util.HttpUtil;
 import com.nyakokishi.zhihu.util.PreferenceUtil;
 import com.nyakokishi.zhihu.widget.DividerItemDecoration;
 
 /**
  * Created by nyakokishi on 2016/3/22.
  */
-public class MenuFragment extends BaseFragment {
+public class MenuFragment extends BaseFragment implements Contract.View {
 
     public static final String TAG = "MenuFragment";
 
@@ -64,9 +53,11 @@ public class MenuFragment extends BaseFragment {
     @Bind(R.id.rotateloading)
     RotateLoading rotateLoading;
 
-    private HomeMenuAdapter adapter;
+    private MenuAdapter adapter;
     private int currentThemeId = 999;
     private String background;
+
+    private Contract.Presenter presenter = new MenuPresenter(this);
 
     @Override
     public void initVariables() {
@@ -153,11 +144,6 @@ public class MenuFragment extends BaseFragment {
         }
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-    }
-
     private void gotoLogin() {
         Intent intent = new Intent(mActivity, LoginActivity.class);
         startActivity(intent);
@@ -174,51 +160,43 @@ public class MenuFragment extends BaseFragment {
 
     @Override
     public void loadData() {
-        if (HttpUtil.isNetworkAvailable(mActivity.getApplicationContext())) {
+        rotateLoading.start();
+        presenter.getThemes();
+    }
 
-
-            HttpUtil.get(Constant.THEMES,
-                    new TextHttpResponseHandler() {
-                        @Override
-                        public void onStart() {
-                            rotateLoading.start();
-                        }
-
-                        @Override
-                        public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
-                            rotateLoading.stop();
-                        }
-
-                        @Override
-                        public void onSuccess(int statusCode, Header[] headers, String responseString) {
-                            rotateLoading.stop();
-                            handleResponse(responseString);
-                            mDBManger.saveThemes(responseString);
-                        }
-                    }
-            );
+    @Override
+    public void updateTheme(boolean isColorTheme, BitmapDrawable background) {
+        super.updateTheme(isColorTheme, background);
+        if (isColorTheme) {
+            ((LinearLayout) themesLv.getParent().getParent()).setBackgroundColor(mActivity.getResources()
+                    .getColor(R.color.blue));
         } else {
-            handleResponse(mDBManger.getThemes());
+            if (background == null) {
+                ((LinearLayout) themesLv.getParent().getParent()).setBackground(mActivity.getResources()
+                        .getDrawable(R.drawable.menu_background));
+            } else {
+                ((LinearLayout) themesLv.getParent().getParent()).setBackground(background);
+            }
+
         }
     }
 
-    private void handleResponse(String response) {
-        if(response == null){
-            return;
-        }
-        List<Themes> data = parseJson(response);
-        Themes home = new Themes();
+    @Override
+    public void fillThemes(Themes themes) {
+        rotateLoading.stop();
+
+        Theme home = new Theme();
         home.setName("首页");
         home.setId(999);
-        data.add(0, home);
-        adapter = new HomeMenuAdapter(mActivity, data, currentThemeId);
+        themes.getOthers().add(0, home);
+        adapter = new MenuAdapter(mActivity, themes.getOthers(), currentThemeId);
         themesLv.setAdapter(adapter);
-        adapter.setOnItemClickListener(new HomeMenuAdapter.OnItemClickListener() {
+        adapter.setOnItemClickListener(new MenuAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View view, Object data) {
                 BaseFragment fragment;
-                Themes themes = (Themes) data;
-                int id = themes.getId();
+                Theme theme = (Theme) data;
+                int id = theme.getId();
                 if (currentThemeId == id) {
                     ((MainActivity) mActivity).closeDrawer();
                     return;
@@ -243,35 +221,5 @@ public class MenuFragment extends BaseFragment {
                 ((MainActivity) mActivity).setRefreshEnable(true);
             }
         });
-    }
-
-    private List<Themes> parseJson(String response) {
-        Log.e(TAG, response);
-        try {
-            JSONObject jsonObject = new JSONObject(response);
-            JSONArray jsonArray = jsonObject.getJSONArray("others");
-            List<Themes> data = JSON.parseArray(jsonArray.toString(), Themes.class);
-            return data;
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
-    @Override
-    public void updateTheme(boolean isColorTheme, BitmapDrawable background) {
-        super.updateTheme(isColorTheme, background);
-        if (isColorTheme) {
-            ((LinearLayout) themesLv.getParent().getParent()).setBackgroundColor(mActivity.getResources()
-                    .getColor(R.color.blue));
-        } else {
-            if (background == null) {
-                ((LinearLayout) themesLv.getParent().getParent()).setBackground(mActivity.getResources()
-                        .getDrawable(R.drawable.menu_background));
-            } else {
-                ((LinearLayout) themesLv.getParent().getParent()).setBackground(background);
-            }
-
-        }
     }
 }

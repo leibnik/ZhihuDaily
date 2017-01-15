@@ -1,55 +1,51 @@
 package com.nyakokishi.data.data;
 
-import java.util.List;
-
 /**
- * Created by nyakokishi on 2016/3/24.
+ * Created by nyakokishi on 2016/3/22.
  */
 public class Theme {
-    /*{
-    "stories": [
+/*{
+    "limit": 1000,
+    "subscribed": [ ],
+    "others": [
+        // Themes单元
         {
-            "images": [
-                "http://pic3.zhimg.com/30d7cc448a836acd245d06547de551a2_t.jpg"
-            ],
-            "type": 1,
-            "id": 7086655,
-            "title": "摩根·施奈德林专访：「我看过坎通纳的视频！我超喜欢哒！」"
-        },
-        {
-            "type": 2,
-            "id": 7082061,
-            "title": "ESPN：NBA 今夏自由市场十大新援"
+            "color": 15007,
+            "thumbnail": "http://pic3.zhimg.com/0e71e90fd6be47630399d63c58beebfc.jpg",
+            "description": "了解自己和别人，了解彼此的欲望和局限。",
+            "id": 13,
+            "name": "日常心理学"
         }
-    ],
-    "description": "关注体育，不吵架。",
-    "background": "http://pic1.zhimg.com/6bbd96bfcbe6f407227f9db36cbbaac0.jpg",
-    "color": 16046124,
-    "name": "体育日报",
-    "image": "http://pic2.zhimg.com/2f7d4a0ab3b03b5d6f514197903bab62.jpg",
-    "editors": [
-        {
-            "url": "http://www.zhihu.com/people/martias",
-            "bio": "米兰球迷，已克死克罗地亚，智利，法国。",
-            "id": 62,
-            "avatar": "http://pic3.zhimg.com/591ff8b9a_m.jpg",
-            "name": "martias"
-        }
-    ],
-    "image_source": ""
+    ]
 }*/
-    private List<Story> stories;
-    private String description;
-    private String background;
-    private String image;
+    private String thumbnail;
     private String name;
+    private String description;
+    private int id;
+    private int color;
 
-    public List<Story> getStories() {
-        return stories;
+    public int getColor() {
+        return color;
     }
 
-    public void setStories(List<Story> stories) {
-        this.stories = stories;
+    public void setColor(int color) {
+        this.color = color;
+    }
+
+    public String getThumbnail() {
+        return thumbnail;
+    }
+
+    public void setThumbnail(String thumbnail) {
+        this.thumbnail = thumbnail;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getDescription() {
@@ -60,27 +56,12 @@ public class Theme {
         this.description = description;
     }
 
-    public String getBackground() {
-        return background;
+    public int getId() {
+        return id;
     }
 
-    public void setBackground(String background) {
-        this.background = background;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public String getImage() {
-        return image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 }

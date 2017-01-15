@@ -15,11 +15,11 @@ import com.bumptech.glide.Glide;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.nyakokishi.data.data.Story;
+import com.nyakokishi.data.data.DailyStory;
 import com.nyakokishi.data.data.Daily;
 import com.nyakokishi.zhihu.R;
 import com.nyakokishi.zhihu.constant.Constant;
-import com.nyakokishi.zhihu.ui.daily.detail.StoryDetailActivity;
+import com.nyakokishi.zhihu.ui.daily.detail.DetailActivity;
 import com.nyakokishi.zhihu.widget.BannerView;
 
 /**
@@ -27,7 +27,7 @@ import com.nyakokishi.zhihu.widget.BannerView;
  */
 public class StoriesAdapter extends RecyclerView.Adapter<StoriesAdapter.ViewHolder> {
 
-    private List<Story> data = new ArrayList<>();
+    private List<DailyStory> data = new ArrayList<>();
     private List<Daily.TopStory> topStories = new ArrayList<>();
     private Context mContext;
     private static final int IS_HEADER = 0;
@@ -146,11 +146,11 @@ public class StoriesAdapter extends RecyclerView.Adapter<StoriesAdapter.ViewHold
                     int[] location = new int[2];
                     v.getLocationOnScreen(location);
                     location[0] += v.getWidth() / 2;
-                    Intent intent = new Intent(mContext, StoryDetailActivity.class);
-                    Story story = new Story();
-                    story.setId(entity.getId());
-                    story.setTitle(entity.getTitle());
-                    intent.putExtra("story", story);
+                    Intent intent = new Intent(mContext, DetailActivity.class);
+                    DailyStory dailyStory = new DailyStory();
+                    dailyStory.setId(entity.getId());
+                    dailyStory.setTitle(entity.getTitle());
+                    intent.putExtra("dailyStory", dailyStory);
                     intent.putExtra("location", location);
                     mContext.startActivity(intent);
                 }
@@ -182,7 +182,7 @@ public class StoriesAdapter extends RecyclerView.Adapter<StoriesAdapter.ViewHold
     }
 
     public interface OnItemClickListener {
-        void onItemClick(View view, Story data);
+        void onItemClick(View view, DailyStory data);
     }
 
     public void setOnItemClickListener(OnItemClickListener listener) {

@@ -1,6 +1,6 @@
 package com.nyakokishi.zhihu.ui.theme;
 
-import com.nyakokishi.data.data.Theme;
+import com.nyakokishi.data.data.ThemeStory;
 import com.nyakokishi.zhihu.base.BaseView;
 
 
@@ -9,7 +9,7 @@ import com.nyakokishi.zhihu.base.BaseView;
  */
 public interface Contract {
     interface View extends BaseView {
-        void onFillTheme(Theme theme);
+        void onFillTheme(ThemeStory themeStory);
     }
 
     interface Presenter {

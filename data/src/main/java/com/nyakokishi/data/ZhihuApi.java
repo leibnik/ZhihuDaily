@@ -1,9 +1,10 @@
 package com.nyakokishi.data;
 
-import com.nyakokishi.data.data.StoryDetail;
 import com.nyakokishi.data.data.Theme;
-import com.nyakokishi.data.data.Themes;
+import com.nyakokishi.data.data.StoryDetail;
+import com.nyakokishi.data.data.ThemeStory;
 import com.nyakokishi.data.data.Daily;
+import com.nyakokishi.data.data.Themes;
 
 import retrofit2.http.GET;
 import retrofit2.http.Path;
@@ -15,7 +16,7 @@ import rx.Observable;
 public interface ZhihuApi {
 
     @GET("themes")
-    Observable<Themes> getSubjects();
+    Observable<Themes> getThemes();
 
     @GET("news/latest")
     Observable<Daily> getLatestDaily();
@@ -24,8 +25,8 @@ public interface ZhihuApi {
     Observable<Daily> getBeforeDaily(@Path("date") String date);
 
     @GET("theme/{id}")
-    Observable<Theme> getSubjectById(@Path("id") int id);
+    Observable<ThemeStory> getThemeById(@Path("id") int id);
 
     @GET("news/{id}")
-    Observable<StoryDetail> getStroyDetail(@Path("id") int id);
+    Observable<StoryDetail> getStoryDetailById(@Path("id") int id);
 }

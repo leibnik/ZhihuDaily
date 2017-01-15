@@ -1,10 +1,12 @@
 package com.nyakokishi.data.data;
 
+import java.util.List;
+
 /**
- * Created by nyakokishi on 2016/3/22.
+ * Created by nyakokishi on 2017/1/15.
  */
 public class Themes {
-/*{
+    /*{
     "limit": 1000,
     "subscribed": [ ],
     "others": [
@@ -18,50 +20,22 @@ public class Themes {
         }
     ]
 }*/
-    private String thumbnail;
-    private String name;
-    private String description;
-    private int id;
-    private int color;
+    private long limit;
+    private List<Theme> others;
 
-    public int getColor() {
-        return color;
+    public long getLimit() {
+        return limit;
     }
 
-    public void setColor(int color) {
-        this.color = color;
+    public void setLimit(long limit) {
+        this.limit = limit;
     }
 
-    public String getThumbnail() {
-        return thumbnail;
+    public List<Theme> getOthers() {
+        return others;
     }
 
-    public void setThumbnail(String thumbnail) {
-        this.thumbnail = thumbnail;
+    public void setOthers(List<Theme> others) {
+        this.others = others;
     }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
 }

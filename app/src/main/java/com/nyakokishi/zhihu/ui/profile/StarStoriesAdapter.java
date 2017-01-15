@@ -13,7 +13,7 @@ import com.bumptech.glide.Glide;
 
 import java.util.List;
 
-import com.nyakokishi.data.data.Story;
+import com.nyakokishi.data.data.DailyStory;
 import com.nyakokishi.zhihu.R;
 
 /**
@@ -21,7 +21,7 @@ import com.nyakokishi.zhihu.R;
  */
 public class StarStoriesAdapter extends RecyclerView.Adapter<StarStoriesAdapter.ViewHolder> {
     private Context mContext;
-    private List<Story> mData;
+    private List<DailyStory> mData;
     public static final int MODE_NORMAL = 1;
     public static final int MODE_FOOTER = 2;
     private OnItemClickListener mOnItemClickListener;
@@ -34,7 +34,7 @@ public class StarStoriesAdapter extends RecyclerView.Adapter<StarStoriesAdapter.
 
 
     public interface OnItemClickListener {
-        void OnItemClick(View v, Story data);
+        void OnItemClick(View v, DailyStory data);
     }
 
 
@@ -46,12 +46,12 @@ public class StarStoriesAdapter extends RecyclerView.Adapter<StarStoriesAdapter.
         this.mContext = context;
     }
 
-    public void setData(List<Story> data) {
+    public void setData(List<DailyStory> data) {
         this.mData = data;
         notifyDataSetChanged();
     }
 
-    public void addData(List<Story> data) {
+    public void addData(List<DailyStory> data) {
         this.mData.addAll(data);
         notifyDataSetChanged();
     }

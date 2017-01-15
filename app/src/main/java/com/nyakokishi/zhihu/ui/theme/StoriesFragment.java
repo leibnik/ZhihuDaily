@@ -5,28 +5,21 @@ import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.alibaba.fastjson.JSON;
-import com.loopj.android.http.TextHttpResponseHandler;
-import com.nyakokishi.data.data.Story;
-import com.nyakokishi.data.data.Theme;
-import com.nyakokishi.zhihu.ui.theme.detail.StoryDetailActivity;
+import com.nyakokishi.data.data.DailyStory;
+import com.nyakokishi.data.data.ThemeStory;
+import com.nyakokishi.zhihu.ui.theme.detail.DetailActivity;
 import com.victor.loading.rotate.RotateLoading;
-
-import org.apache.http.Header;
 
 import butterknife.Bind;
 
 import com.nyakokishi.zhihu.R;
 import com.nyakokishi.zhihu.base.BaseFragment;
-import com.nyakokishi.zhihu.constant.Constant;
 import com.nyakokishi.zhihu.ui.MainActivity;
-import com.nyakokishi.zhihu.util.HttpUtil;
 
 /**
  * Created by nyakokishi on 2016/3/23.
@@ -81,16 +74,16 @@ public class StoriesFragment extends BaseFragment implements Contract.View {
     }
 
     @Override
-    public void onFillTheme(Theme theme) {
-        mAdapter = new StoriesAdapter(mActivity, theme);
+    public void onFillTheme(ThemeStory themeStory) {
+        mAdapter = new StoriesAdapter(mActivity, themeStory);
         mAdapter.setOnItemClickListener(new StoriesAdapter.OnItemClickListener() {
             @Override
-            public void OnItemClick(View v, Story data) {
+            public void OnItemClick(View v, DailyStory data) {
                 int[] location = new int[2];
                 v.getLocationOnScreen(location);
                 location[0] += v.getWidth() / 2;
-                Intent intent = new Intent(mActivity, StoryDetailActivity.class);
-                intent.putExtra("summary", data);
+                Intent intent = new Intent(mActivity, DetailActivity.class);
+                intent.putExtra("story", data);
                 intent.putExtra("location", location);
                 startActivity(intent);
             }

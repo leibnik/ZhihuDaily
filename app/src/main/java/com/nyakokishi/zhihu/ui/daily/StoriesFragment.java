@@ -10,9 +10,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.nyakokishi.data.data.Story;
+import com.nyakokishi.data.data.DailyStory;
 import com.nyakokishi.data.data.Daily;
-import com.nyakokishi.zhihu.ui.daily.detail.StoryDetailActivity;
+import com.nyakokishi.zhihu.ui.daily.detail.DetailActivity;
 import com.nyakokishi.zhihu.util.DateUtil;
 import com.victor.loading.rotate.RotateLoading;
 
@@ -81,11 +81,11 @@ public class StoriesFragment extends BaseFragment implements Contract.View {
         mAdapter = new StoriesAdapter(getActivity(), isColorTheme);
         mAdapter.setOnItemClickListener(new StoriesAdapter.OnItemClickListener() {
             @Override
-            public void onItemClick(View view, Story data) {
+            public void onItemClick(View view, DailyStory data) {
                 int[] location = new int[2];
                 view.getLocationOnScreen(location);
                 location[0] += view.getWidth() / 2;
-                Intent intent = new Intent(mActivity, StoryDetailActivity.class);
+                Intent intent = new Intent(mActivity, DetailActivity.class);
                 intent.putExtra("story", data);
                 intent.putExtra("location", location);
                 startActivity(intent);
@@ -120,18 +120,18 @@ public class StoriesFragment extends BaseFragment implements Contract.View {
 
         date = daily.getDate();
 
-        List<Story> result = daily.getStories();
-        Story story = new Story();
-        story.setType(Constant.DAILY_DATE);
+        List<DailyStory> result = daily.getStories();
+        DailyStory dailyStory = new DailyStory();
+        dailyStory.setType(Constant.DAILY_DATE);
 
         if (isLoadMore) {
-            story.setTitle(DateUtil.parse(date));
-            result.add(0, story);
+            dailyStory.setTitle(DateUtil.parse(date));
+            result.add(0, dailyStory);
             daily.setStories(result);
             mAdapter.loadMore(daily);
         } else {
-            story.setTitle("今日最新");
-            result.add(0, story);
+            dailyStory.setTitle("今日最新");
+            result.add(0, dailyStory);
             daily.setStories(result);
             mAdapter.refreshData(daily);
             isRefreshing = false;
